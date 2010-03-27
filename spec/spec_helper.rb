@@ -52,3 +52,7 @@ Spec::Runner.configure do |config|
   #
   # For more information take a look at Spec::Runner::Configuration and Spec::Runner
 end
+
+def log_in(user)
+  controller.stub!(:current_user).and_return(user)
+end

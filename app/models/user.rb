@@ -10,4 +10,12 @@ class User < ActiveRecord::Base
     c.ignore_blank_passwords true
     c.require_password_confirmation false
   end
+
+  def admin?
+    admin
+  end
+
+  def signed_up_for?(event)
+    events.include?(event)
+  end
 end
