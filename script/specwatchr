@@ -1,0 +1,41 @@
+# Run me with:
+#
+#   $ watchr specs.watchr.rb
+
+# --------------------------------------------------
+# Convenience Methods
+# --------------------------------------------------
+def all_test_files
+  Dir['spec/**/*_spec.rb'] - ['spec/spec_helper.rb']
+end
+
+def run(cmd)
+  puts "\e[H\e[2J"  #clear console
+  puts(cmd)
+  system(cmd)
+end
+
+def run_all_tests
+  cmd = "spec spec"
+  run(cmd)
+end
+
+# --------------------------------------------------
+# Watchr Rules
+# --------------------------------------------------
+watch( '^spec/.+_spec.rb'   )   { |m| run( "spec %s"              % m[0] ) }
+watch( '^app/(.+)/(.+)\.rb'         )   { |m| run( "spec spec/%s/%s_spec.rb" % [m[1],m[2]] ) }
+watch( '^lib/(.*)\.rb'      )   { |m| run( "spec spec/lib/%s_spec.rb" % m[1] ) }
+watch( '^spec/spec_helper\.rb' )   { run_all_tests }
+
+# --------------------------------------------------
+# Signal Handling
+# --------------------------------------------------
+# Ctrl-\
+Signal.trap('QUIT') do
+  puts " --- Running all tests ---\n\n"
+  run_all_tests
+end
+
+# Ctrl-C
+Signal.trap('INT') { abort("\n") }
