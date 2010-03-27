@@ -107,10 +107,11 @@ div#content a:link, div#content a:visited, div#content a:hover {
 	}
 
 div#content h1 {
-	color: #659a56;
-	font-size: 1.2em;
+	color: #407032;
+	font-size: 1.3em;
 	text-transform: uppercase;
-	font-weight: normal;
+	font-weight: bold;
+	letter-spacing: -1px;
 	
 	padding: 0 0 0.4em 0;
 }
