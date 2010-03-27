@@ -2,12 +2,13 @@
 
 <% @events.each do |event| %>
 <div class="event_listing">
+
     <h3><%=h event.title %></h3>
-    <div class="event_date"><%=h event.date.strftime("%A %m/%d/%Y") unless event.date.nil? %></div>
-    <div class="event_time"><%=h event.date.strftime("%I:%M %p") unless event.date.nil? %></div>
-    <div class="event_location"><%=h event.location %></div>
-    <div class="event_hours"><%=h event.number_of_hours %></div>
-		<div class="event_users"><%=h event.users.count %></div>
+    <div class="event_date">Date: <%=h event.date.strftime("%A %m/%d/%Y") unless event.date.nil? %></div>
+    <div class="event_time">Time: <%=h event.date.strftime("%I:%M %p") unless event.date.nil? %></div>
+    <div class="event_location">Location: <%=h event.location %></div>
+    <div class="event_hours">Hours: <%=h event.number_of_hours %></div>
+		<div class="event_users">Volunteers: <%=h event.users.count %></div>
 </div>
 <% end %>
 
