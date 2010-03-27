@@ -20,9 +20,12 @@ div#header {
 	padding-top: 20px;
 }
 
+div#breadcrumbs {
+	padding-top: 32px;
+}
 
 div#content {
-	padding-top: 50px;
+	padding-top: 6px;
 }
 
 	div#content_area {
@@ -49,12 +52,29 @@ body {
 	background: #e3e3ce url(/images/bg-body-repeat.gif) top repeat-x;
 }
 
-
-
-
 div#header {
 
 }
+
+	div#header img {
+		padding-left: 10px;
+	}
+
+
+div#breadcrumbs p {
+	color: #eee;
+	font-weight: bold;
+	font-size: 0.8em;
+	padding-left: 23px;
+}
+
+div#breadcrumbs a:link, div#breadcrumbs a:visited, div#breadcrumbs a:hover {
+	color: #d7e1ff;
+	text-decoration: underline;
+}
+
+
+
 
 div#content_top {
 	background: transparent url(/images/bg-content-top.png) top center no-repeat;
@@ -141,3 +161,19 @@ div#content div.event_listing {
 	}
 
 
+
+div#footer p {
+	padding: 0.8em 23px;
+	font-size: 0.8em;
+	font-weight: bold;
+	color: #565454;
+}
+
+div#footer a:link, div#footer a:visited, div#footer a:hover {
+	color: #4363bf;
+	text-decoration: none;
+}
+
+	div#footer a:hover {
+		text-decoration: underline;
+	}
