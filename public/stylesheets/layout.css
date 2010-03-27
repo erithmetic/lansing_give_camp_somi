@@ -175,7 +175,7 @@ div#content label.standard {
 }
 
 div#content input.standard {
-	padding: 3px;
+	padding: 5px 3px;
 	font-size: 1.1em;
 	color: #444;
 	font-family: Courier;
@@ -183,9 +183,20 @@ div#content input.standard {
 }
 
 	div#content input.standard:focus {
-		color: #222;
+		color: #000;
 	}
-
+	
+div#content textarea.standard {
+	padding: 5px 3px;
+	font-size: 1em;
+	line-height: 1.3em;
+	color: #444;
+	font-family: Courier;
+	letter-spacing: 1px;
+}
+	div#content textarea.standard:focus {
+		color: #000;
+	}
 
 
 div#footer p {
