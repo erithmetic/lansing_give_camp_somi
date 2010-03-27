@@ -1,8 +1,8 @@
-<p><%= link_to 'go back to see all opportunities', events_path %></p>
+<!-- <p><%= link_to 'go back to see all opportunities', events_path %></p> -->
 
 <h1><%=h @event.title %></h1>
 
-<div class="event_listing">
+<div class="event_listing clear less_padding">
 	<div class="event_left">
 	
 		<h2>Details</h2>
@@ -18,11 +18,12 @@
 		<h2>Description</h2>
 		<p><%=h @event.description %></p>
 	</div>
+</div>
+
 
   <div class="event_signup">
     <% if current_user and current_user.signed_up_for?(@event) %>
-      <%= link_to 'Cancel sign-up', polymorphic_url(@event_volunteer), :method => :delete, 
-                                    :confirm => "Are you sure you want to cancel your registration?" %>
+      <%= link_to 'cancel my volunteer sign-up', polymorphic_url(@event_volunteer), :method => :delete, :confirm => "Are you sure you want to cancel your registration?" %>
     <% else %>
       <h2>Sign up for this event as a volunteer</h2>
       <% form_for([@event, @event_volunteer]) do |event_volunteer_form| %>
