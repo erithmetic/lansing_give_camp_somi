@@ -24,6 +24,7 @@ Rails::Initializer.run do |config|
   config.gem 'authlogic'
   config.gem 'resource_controller'
   config.gem 'cucumber'
+  config.gem 'jrails'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

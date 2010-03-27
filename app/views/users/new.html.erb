@@ -8,6 +8,10 @@
     <%= f.text_field :email %>
   </p>
   <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
@@ -36,7 +40,7 @@
     <%= f.text_field :zip %>
   </p>
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit 'Sign me up' %>
   </p>
 <% end %>
 

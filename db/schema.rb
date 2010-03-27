@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100327141744) do
+ActiveRecord::Schema.define(:version => 20100327152824) do
 
   create_table "event_volunteers", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20100327141744) do
     t.float    "number_of_hours"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "minimum_volunteers"
   end
 
   create_table "groups", :force => true do |t|

@@ -40,6 +40,7 @@ div#content {
 	div#right {
 		width: 280px;
 		float: right;
+		padding-top: 2px;
 	}
 
 
@@ -78,12 +79,12 @@ div#breadcrumbs a:link, div#breadcrumbs a:visited, div#breadcrumbs a:hover {
 
 div#content_top {
 	background: transparent url(/images/bg-content-top.png) top center no-repeat;
-	height: 31px;
+	height: 32px;
 }
 
 div#content_bot {
 	background: transparent url(/images/bg-content-bot.png) top center no-repeat;
-	height: 24px;
+	height: 32px;
 }
 
 div#content_area {
@@ -106,12 +107,17 @@ div#content a:link, div#content a:visited, div#content a:hover {
 	}
 
 div#content h1 {
-
+	color: #659a56;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	font-weight: normal;
+	
+	padding: 0 0 0.7em 0;
 }
 
 div#content h2 {
 	color: #659a56;
-	font-size: 1em;
+	font-size: 0.95em;
 	text-transform: uppercase;
 	font-weight: bold;
 	
@@ -158,6 +164,26 @@ div#content div.event_listing {
 		line-height: 1em;
 		padding: 0.1em 0;
 		text-transform: uppercase;
+	}
+
+
+
+div#content label.standard {
+	font-weight: bold;
+	color: #555;
+	text-transform: uppercase;
+}
+
+div#content input.standard {
+	padding: 3px;
+	font-size: 1.1em;
+	color: #444;
+	font-family: Courier;
+	letter-spacing: 1px;
+}
+
+	div#content input.standard:focus {
+		color: #222;
 	}
 
 
