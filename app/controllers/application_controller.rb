@@ -18,7 +18,7 @@ private
     @current_user = current_user_session && current_user_session.user
   end
 
-  def require_person
+  def require_user
     unless current_user
       flash[:notice] = "You must be logged in to access this page"
       unauthorized
@@ -36,6 +36,7 @@ private
   end
 
   def unauthorized
+    @user_session = UserSession.new
     render :template => 'sessions/new',
            :status => 401
     false
