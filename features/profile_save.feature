@@ -11,5 +11,5 @@ Feature: Profile save
 		And I fill in "state" with "MI"
 		And I fill in "zip" with "90210"
 		And I press "update"
-		Then I should be on user profile page for "meredith@example.com"
+		Then I should be taken to the user profile page for "meredith@example.com"
 		And I should see "Email: meredith@example.com"
