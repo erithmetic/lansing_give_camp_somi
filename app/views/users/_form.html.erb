@@ -1,0 +1,44 @@
+<%= user_form.error_messages %>
+
+<div class="event_left">
+  <h3>Contact Information</h3>
+
+  <p>
+    <%= user_form.label :email, "E-mail Address", :class=>"standard", :onblur => "javascript:ValidateBox(this)" %><br />
+    <%= user_form.text_field :email, :class=>"standard" %>
+  </p>
+  <p>
+  <%= user_form.label :password, 'Password (optional)', :class => 'standard', :onblur => "javascript:ValidateBox(this)" %><br />
+    <%= user_form.password_field :password %>
+  </p>
+  <p>
+    <%= user_form.label :name, "Your Name", :class=>"standard" %><br />
+    <%= user_form.text_field :name, :class=>"standard" %>
+  </p>
+  <p>
+    <%= user_form.label :phone, "Phone Number", :class=>"standard" %><br />
+    <%= user_form.text_field :phone, :class=>"standard" %>
+  </p>
+</div>
+
+<div class="event_right">
+
+  <h3>Your Address</h3>
+
+  <p>
+    <%= user_form.label :address1, "Address", :class=>"standard" %><br />
+    <%= user_form.text_field :address1, :class=>"standard" %>
+  </p>
+  
+  <p>
+    <%= user_form.label :address2, "Address (2nd line)", :class=>"standard" %><br />
+    <%= user_form.text_field :address2, :class=>"standard" %>
+  </p>
+  
+  <p>
+    <%= user_form.label :city, "City", :class=>"standard" %><br />
+    <%= user_form.text_field :city, :class=>"standard" %>	
+  </p>
+  
+</div>
+<div class="clear"></div>

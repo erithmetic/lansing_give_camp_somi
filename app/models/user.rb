@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   before_validation :reset_blank_password
 
+  attr_accessor :password_confirmation
+
   acts_as_authentic do |c|
     c.login_field :email
     c.ignore_blank_passwords true
