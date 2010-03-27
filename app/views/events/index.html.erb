@@ -1,28 +1,13 @@
-<h1>Listing events</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Date</th>
-    <th>Location</th>
-    <th>Number of hours</th>
-  </tr>
-
+<h1>Events</h1>
+ 
 <% @events.each do |event| %>
-  <tr>
-    <td><%=h event.title %></td>
-    <td><%=h event.description %></td>
-    <td><%=h event.date %></td>
-    <td><%=h event.location %></td>
-    <td><%=h event.number_of_hours %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<div class="event_listing">
+    <h3><%= link_to event.title, event %></h3>
+    <div class="event_date">Date: <%=h event.date.strftime("%A %m/%d/%Y") unless event.date.nil? %></div>
+    <div class="event_time">Time: <%=h event.date.strftime("%I:%M %p") unless event.date.nil? %></div>
+    <div class="event_location">Location: <%=h event.location %></div>
+    <div class="event_hours">Hours: <%=h event.number_of_hours %></div>
+		<div class="event_users">Volunteers: <%=h event.users.count %></div>
+</div>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New event', new_event_path %>

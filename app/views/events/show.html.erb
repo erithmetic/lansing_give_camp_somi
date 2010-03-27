@@ -1,28 +1,44 @@
-<p>
-  <b>Title:</b>
-  <%=h @event.title %>
-</p>
+<div>
+	<div class="event">
+		<div class="event_title"><%=h @event.title %> or <%= link_to 'go back to see all opportunities', events_path %></div>
+  	<div class="event_date_time"><%=h @event.date.strftime("%m/%d/%Y") %> - <%=h @event.date.strftime("%I:%M %p") %></div>
+  	<div class="event_location"><%=h @event.location %></div>
+  	<div class="event_hours"><%=h @event.number_of_hours %></div>
+		<div class="event_users"><%=h @event.users.count %> volunteers signed up (# remaining)</div>
+		<h4>Description</h4>
+		<div class="event_description"><%=h @event.description %></div>
+	</div>
+	<div class="event_signup">
+		<h3>Sign up for this event</h3>
+		<% form_for(@user) do |f| %>
+  		<%= f.error_messages %>
+		<div id="event_signup_left">
+			<div class="event_signup_email">
+    	<%= f.label :email %><br />
+    	<%= f.text_field :email %>
+			</div>
 
-<p>
-  <b>Description:</b>
-  <%=h @event.description %>
-</p>
+			<div class="event_signup_name">
+    	<%= f.label :name %><br />
+    	<%= f.text_field :name %>
+			</div>
 
-<p>
-  <b>Date:</b>
-  <%=h @event.date %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%=h @event.location %>
-</p>
-
-<p>
-  <b>Number of hours:</b>
-  <%=h @event.number_of_hours %>
-</p>
-
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+			<div class="event_signup_phone">
+    	<%= f.label :phone %><br />
+    	<%= f.text_field :phone %>
+			</div>
+		</div>
+		<div id="event_signup_right">
+    	<%= f.label :address1 %><br />
+    	<%= f.text_field :address1 %>
+    	<%= f.label :address2 %><br />
+    	<%= f.text_field :address2 %>
+    	<%= f.label :city %><br />
+    	<%= f.text_field :address1 %>
+		</div>
+		<div id="event_signup_footer">
+			<%= f.submit 'Sign Up' %> 	
+		</div>
+		<% end %>
+	</div>
+</div>
