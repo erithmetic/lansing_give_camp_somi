@@ -1,3 +1,6 @@
+<% @title = @event.title %>
+<% @page_name = "show" %>
+
 <!-- <p><%= link_to 'go back to see all opportunities', events_path %></p> -->
 
 <h1><%=h @event.title %></h1>
@@ -27,8 +30,11 @@
       <h2>Sign up for this event as a volunteer</h2>
       <% form_for([@event, @event_volunteer]) do |event_volunteer_form| %>
         <%= event_volunteer_form.error_messages %>
-        <% event_volunteer_form.fields_for :user do |user_form| %>
-          <%= render :partial => 'users/form', :locals => { :user_form => user_form, :user => @event_volunteer.user } %>
+
+        <% unless current_user %>
+          <% event_volunteer_form.fields_for :user do |user_form| %>
+            <%= render :partial => 'users/form', :locals => { :user_form => user_form, :user => @event_volunteer.user } %>
+          <% end %>
         <% end %>
 
         <h3>Are you signing up as group?</h3>
@@ -38,9 +44,8 @@
         <p>
           Insert form fields for group name and number of volunteers.		
         </p>
-
         <p>
-          <%= event_volunteer_form.submit 'Sign Up as a Volunteer' %> or <%= link_to 'go back to see all opportunities', events_path %>	
+          <%= event_volunteer_form.submit 'Sign Up' %> or <%= link_to 'go back to see all opportunities', events_path %>	
         </p>
       <% end %>
     <% end %>

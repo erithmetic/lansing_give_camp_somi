@@ -6,7 +6,7 @@
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />	
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
-	<title>Events: <%= controller.action_name %></title>
+  <title><%= @title or 'Area 8 Volunteer Coordination' %></title>
 	<%= stylesheet_link_tag 'reset' %>
 	<%= stylesheet_link_tag 'layout' %>
 </head>
@@ -25,7 +25,11 @@
 </div></div>
 
 <div id="breadcrumbs"><div class="wrapper">
-	<p><a href="http://www.somi.org/area8/">Area 8 Home</a> > Upcoming Volunteer Opportunities</p>
+<p><a href="http://www.somi.org/area8/">Area 8 Home</a>
+<% if @page_name == "events" %> &gt; Upcoming Volunteer Opportunities <% end %>
+<% if @page_name == "show" %> &gt; <%= link_to 'Upcoming Volunteer Opportunities', events_path %> &gt; <%= @title %><% end %>
+</p>
+  
 </div></div>
 
 
@@ -47,7 +51,7 @@
 
 <div id="footer"><div class="wrapper">
 
-	<p>If you have any problems or questions, do not hesitate to call at (517) 885-1175.</p>
+	<p>If you have any problems or questions, do not hesitate to call at (517) 887-1175.</p>
 
 </div></div>
 

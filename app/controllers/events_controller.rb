@@ -1,7 +1,7 @@
 class EventsController < ResourceController::Base
   actions :all
 
-  before_filter :require_person, :except => [:show, :index]
+  before_filter :require_user, :except => [:show, :index]
   before_filter :require_manager, :except => [:show, :index]
 
   create.success.wants.html { redirect_to events_url }
