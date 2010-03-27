@@ -112,7 +112,7 @@ div#content h1 {
 	text-transform: uppercase;
 	font-weight: normal;
 	
-	padding: 0 0 0.7em 0;
+	padding: 0 0 0.4em 0;
 }
 
 div#content h2 {
@@ -162,7 +162,6 @@ div#content div.event_listing {
 		div#content div.event_listing h3.full {
 			padding-left: 41px;
 			background: transparent url(../images/icons/icon-full.png) center left no-repeat;
-		
 		}
 
 	div#content div.event_listing p {
