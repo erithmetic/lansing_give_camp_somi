@@ -16,15 +16,18 @@ div.wrapper {
 }
 
 div#header {
-
-
+	height: 85px;
+	padding-top: 20px;
 }
 
 
 div#content {
-
-
+	padding-top: 50px;
 }
+
+
+
+
 
 /*
 	Backgrounds, colors, sizes, etc.
@@ -32,7 +35,7 @@ div#content {
 
 body {
 	font-family: Arial, Verdana, sans-serif;
-	background: #e3e3ce url(../images/bg-content-top) top repeat-x;
+	background: #e3e3ce url(/images/bg-content-top.gif) top repeat-x;
 }
 
 
@@ -44,17 +47,23 @@ div#header {
 
 /* content_top is strictly a styling div to get the rounded corner thing in nicely. */
 div#content_top {
-	background: transparent url(../images/bg-content-top.png) top center no-repeat;
+	background: transparent url(/images/bg-content-top.png) top center no-repeat;
 	height: 31px;
 }
 
 div#content_bot {
-	background: transparent url(../images/bg-content-bot.png) top center no-repeat;
+	background: transparent url(/images/bg-content-bot.png) top center no-repeat;
 	height: 24px;
 }
 
-div#content div.wrapper {
-	background: transparent url(../images/bg-content-repeat.png) center repeat-y;
+div#content_area {
+	background: transparent url(/images/bg-content-repeat.png) center repeat-y;
+}
+
+
+
+div#content {
+	color: #3b3939;
 }
 
 div#content a:link, div#content a:visited, div#content a:hover {
@@ -72,4 +81,11 @@ div#content h1 {
 
 div#content h2 {
 	color: #659a56;
+	font-size: 1.1em;
+	text-transform: uppercase;
+	font-weight: bold;
 }
+
+
+
+
