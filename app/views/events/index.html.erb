@@ -1,5 +1,8 @@
+
+<div id="left">
+
 <h1>Upcoming volunteer opportunities</h1>
- 
+
 <% @events.each do |event| %>
 <div class="event_listing">
     <h3><%= link_to event.title, event %></h3>
@@ -10,4 +13,45 @@
 		<p class="event_users">Volunteers: <%=h event.users.count %></p>
 </div>
 <% end %>
+</div>
 
+
+<div id="right">
+	
+		<h2 class="no_margin">Why volunteer?</h2>
+		<p>Aliquam quam libero, tristique eget posuere eu, elementum sed sapien. Nulla enim diam, tempor vel condimentum in, dapibus at magna. Nullam eu tortor est, si.</p>
+	
+		<h2>Track &amp; share</h2>
+		
+		<p>Placeholder for a login box or button.</p>
+		
+		<h2>Fundraising opportunities</h2>
+		
+		<ul>
+			<li>
+				<a href="#">Egypt's Mubarak 'returning home'</a>
+			</li>
+			<li>
+				<a href="#">Thai red shirts confront troops</a>
+			</li>
+			<li>
+				<a href="#">Burma stages army parade  </a>
+			</li>
+		</ul>	
+				
+		<h2>News</h2>
+		
+		<ul>
+			<li>
+				<a href="#">Egypt's Mubarak 'returning home'</a>
+			</li>
+			<li>
+				<a href="#">Thai red shirts confront troops</a>
+			</li>
+			<li>
+				<a href="#">Burma stages army parade  </a>
+			</li>
+		</ul>	
+	</div>
+
+	<div class="clear"></div>

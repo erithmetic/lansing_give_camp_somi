@@ -4,3 +4,4 @@ db/*.sqlite
 db/*.sqlite3
 spec/integration
 *.swp
+rerun.txt

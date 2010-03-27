@@ -1,17 +1,13 @@
-Given /a user named "(.+)" with password "(.+)" exists/ do |email, password|
+Given /a user with email "(.+)" and password "(.+)" exists/ do |email, password|
   @email = email
   When("I go to the signup page")
-  When('I fill in "user_email" with "' + email + '@example.com"')
+  When('I fill in "user_email" with "' + email  + '"')
   When('I fill in "user_password" with "' + password + '"')
   When('I press "Sign me up"')
 end
 
-Given /a user with email "(.+)" exists/ do |email|
-  Factory.create(:user, :email => email)
-end
-
-Given /I am logged in as an existing user named "(.+)" with password "(.+)"/ do |email, password|
-  Given("a user named \"#{email}\" with password \"#{password}\" exists")
+Given /I am logged in as an existing user with email "(.+)" and password "(.+)"/ do |email, password|
+  Given("a user with email \"#{email}\" and password \"#{password}\" exists")
 end
 
 When /I edit my profile/ do
