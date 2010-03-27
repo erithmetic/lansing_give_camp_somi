@@ -32,6 +32,7 @@ div#content {
 
 body {
 	font-family: Arial, Verdana, sans-serif;
+	background: #e3e3ce url(../images/bg-content-top) top repeat-x;
 }
 
 
