@@ -1,44 +1,78 @@
-<div>
-	<div class="event">
-		<div class="event_title"><%=h @event.title %> or <%= link_to 'go back to see all opportunities', events_path %></div>
-  	<div class="event_date_time"><%=h @event.date.strftime("%m/%d/%Y") %> - <%=h @event.date.strftime("%I:%M %p") %></div>
-  	<div class="event_location"><%=h @event.location %></div>
-  	<div class="event_hours"><%=h @event.number_of_hours %></div>
-		<div class="event_users"><%=h @event.users.count %> volunteers signed up (# remaining)</div>
-		<h4>Description</h4>
-		<div class="event_description"><%=h @event.description %></div>
-	</div>
-	<div class="event_signup">
-		<h3>Sign up for this event</h3>
-		<% form_for(@user) do |f| %>
-  		<%= f.error_messages %>
-		<div id="event_signup_left">
-			<div class="event_signup_email">
-    	<%= f.label :email %><br />
-    	<%= f.text_field :email %>
-			</div>
+<p><%= link_to 'go back to see all opportunities', events_path %></p>
 
-			<div class="event_signup_name">
-    	<%= f.label :name %><br />
-    	<%= f.text_field :name %>
-			</div>
+<h1><%=h @event.title %></h1>
 
-			<div class="event_signup_phone">
-    	<%= f.label :phone %><br />
-    	<%= f.text_field :phone %>
-			</div>
-		</div>
-		<div id="event_signup_right">
-    	<%= f.label :address1 %><br />
-    	<%= f.text_field :address1 %>
-    	<%= f.label :address2 %><br />
-    	<%= f.text_field :address2 %>
-    	<%= f.label :city %><br />
-    	<%= f.text_field :address1 %>
-		</div>
-		<div id="event_signup_footer">
-			<%= f.submit 'Sign Up' %> 	
-		</div>
-		<% end %>
+
+<div class="event_left">
+	<h2>Details</h2>
+	<div class="event_listing">
+		<p class="event_date"><%=h @event.date.strftime("%m/%d/%Y") %></p>
+		<p class="event_time"><%=h @event.date.strftime("%I:%M %p") %></p>
+		<p class="event_location"><%=h @event.location %></p>
+		<p class="event_volunteers"><%=h @event.users.count %> volunteers signed up (# remaining)</p>
+		<p class="event_hours"><%=h @event.number_of_hours %></p>
 	</div>
 </div>
+
+<div class="event_right">
+	<h2>Description</h2>
+	<p><%=h @event.description %></p>
+</div>
+
+<div class="clear"></div>	
+
+<h2>Signup for this event as a volunteer</h2>
+<% form_for(@user) do |f| %>
+<%= f.error_messages %>
+
+<h3>Your information</h3>
+  		  		
+<div class="event_left">
+	<p>
+    	<%= f.label :email %><br />
+    	<%= f.text_field :email %>
+	</p>
+
+	<p>
+    	<%= f.label :name %><br />
+    	<%= f.text_field :name %>
+	</p>
+
+	<p>
+    	<%= f.label :phone %><br />
+    	<%= f.text_field :phone %>
+	</p>
+</div>
+
+<div class="event_right">
+	<p>
+		<%= f.label :address1 %><br />
+    	<%= f.text_field :address1 %>
+	</p>
+	<p>
+		<%= f.label :address2 %><br />
+    	<%= f.text_field :address2 %>
+	</p>
+	<p>
+		<%= f.label :city %><br />
+    	<%= f.text_field :city %>
+	</p>  	
+</div>
+
+<div class="clear"></div>
+
+<h3>Are you signing up a group?</h3>
+	<p>
+		Skip this section if you are signing up as an individual.
+	</p>
+	<p>
+		Insert form fields for group name and number of volunteers.		
+	</p>
+
+
+
+<p>
+	<%= f.submit 'Sign Up as a Volunteer' %> 	
+</p>
+		<% end %>
+
