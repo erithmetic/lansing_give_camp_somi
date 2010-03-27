@@ -1,17 +1,19 @@
 <% form_for @user_session, :url => sessions_path do |f| %>
   <legend>Enter your email address and password to log in. 
-    <%= link_to 'Click here', new_password_resets_url %> to reset your password if 
+    <%= link_to 'Click here', new_password_reset_url %> to reset your password if 
     you have forgotten it. </legend>
+  <%= error_messages_for :user_session %>
   <fieldset>
-    <ul>
-      <li>
-        <%= f.label :email, 'Email' %>
-        <%= f.text_field :email %>
-      <li>
-      <li>
-        <%= f.label :password, 'Password' %>
-        <%= f.password_field :password %>
-      </li>
-    </ul>
+    <p>
+      <%= f.label :email, 'Email' %>
+      <%= f.text_field :email %>
+    <p>
+    <p>
+      <%= f.label :password, 'Password' %>
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.submit 'Log in' %>
+    </p>
   </fieldset>
 <% end %>

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      redirect_to home_url
+      redirect_to root_url
     else
       render :action => :new
     end

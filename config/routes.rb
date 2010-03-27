@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sessions
   map.resources :password_resets
 
-  map.root :controller => :home, :action => :show
+  map.root :controller => :events, :action => :index
 
   map.signup '/sign-up', :controller => 'users', :action => 'new'
   map.signin '/sign-in', :controller => 'sessions', :action => 'new'
