@@ -1,4 +1,4 @@
-.clear{clear:both;}.hide{position:absolute;left:-9999px;}
+.clear{overflow:hidden;width:100%;}.hide{position:absolute;left:-9999px;}.clear_floats{clear:both;}
 
 /*
 	Positioning
@@ -112,7 +112,7 @@ div#content h1 {
 	text-transform: uppercase;
 	font-weight: normal;
 	
-	padding: 0 0 0.7em 0;
+	padding: 0 0 0.4em 0;
 }
 
 div#content h2 {
@@ -154,6 +154,10 @@ div#content div.event_listing {
 	border-bottom: 1px solid #c1c1a3;
 }
 
+	div#content div.less_padding {
+		padding: 5px 0 15px 0;
+	}
+
 	div#content div.event_listing h3 {
 		padding: 0.2em 0;
 		font-size: 1.2em;
@@ -162,7 +166,6 @@ div#content div.event_listing {
 		div#content div.event_listing h3.full {
 			padding-left: 41px;
 			background: transparent url(../images/icons/icon-full.png) center left no-repeat;
-		
 		}
 
 	div#content div.event_listing p {
@@ -200,6 +203,16 @@ div#content div.event_listing {
 		color: #5d504f;
 	}
 
+
+div.event_left {
+	width: 45%;
+	float: left;
+}
+
+div.event_right {
+	width: 45%;
+	float: right;
+}
 
 
 div#content label.standard {

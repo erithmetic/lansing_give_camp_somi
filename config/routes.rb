@@ -1,7 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :users
 
-  map.resources :events
+  map.resources :events, :has_many => :event_volunteers
+  map.resources :event_volunteers
 
   map.resources :sessions
   map.resources :password_resets
