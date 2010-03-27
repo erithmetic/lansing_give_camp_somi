@@ -79,12 +79,12 @@ div#breadcrumbs a:link, div#breadcrumbs a:visited, div#breadcrumbs a:hover {
 
 div#content_top {
 	background: transparent url(/images/bg-content-top.png) top center no-repeat;
-	height: 31px;
+	height: 32px;
 }
 
 div#content_bot {
 	background: transparent url(/images/bg-content-bot.png) top center no-repeat;
-	height: 24px;
+	height: 32px;
 }
 
 div#content_area {
