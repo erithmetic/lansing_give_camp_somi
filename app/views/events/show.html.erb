@@ -32,8 +32,8 @@
           <h3>Your information</h3>
           <div id="event_left">
             <p>
-            <%= user_form.label :email %><br />
-            <%= user_form.text_field :email %>
+            <%= user_form.label :email%><br />
+            <%= user_form.text_field :email, :onblur => "javascript:ValidateBox(this)"%>
             </p>
             <p>
             <%= user_form.label :name %><br />
