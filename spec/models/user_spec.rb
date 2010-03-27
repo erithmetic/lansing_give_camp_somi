@@ -1,10 +1,24 @@
 require 'spec_helper'
 
 describe User do
-  it 'should be an authorizable user' do
-    u = User.new
-    u.should respond_to(:password)
-    u.should respond_to(:reset_password)
+  describe 'callbacks' do
+    describe :reset_blank_password do
+      it 'should reset the password if a newly created user password is blank' do
+        u = User.new(:email => 'foo@bar.com')
+        u.should_receive(:reset_password).and_return('fooble')
+        u.save
+      end
+      it 'should not reset the password if it is not blank' do
+        u = User.create(:email => 'foo@bar.com', :password => 'mine')
+        u.password.should == 'mine'
+      end
+      it 'should not reset the password for an existing user' do
+        u = User.create(:email => 'foo@bar.com', :password => 'mine')
+        u.reload
+        u.should_not_receive(:reset_password)
+        u.save
+      end
+    end
   end
 
   describe :signed_up_for? do
