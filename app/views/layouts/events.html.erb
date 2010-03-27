@@ -6,7 +6,7 @@
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />	
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
-	<title>Events: <%= controller.action_name %></title>
+  <title><%= @title or 'Events' %></title>
 	<%= stylesheet_link_tag 'reset' %>
 	<%= stylesheet_link_tag 'layout' %>
 </head>
@@ -25,7 +25,7 @@
 </div></div>
 
 <div id="breadcrumbs"><div class="wrapper">
-	<p><a href="http://www.somi.org/area8/">Area 8 Home</a> > Upcoming Volunteer Opportunities</p>
+  <p><a href="http://www.somi.org/area8/">Area 8 Home</a> &gt; <%= link_to 'Upcoming Volunteer Opportunities', events_path %></p>
 </div></div>
 
 
