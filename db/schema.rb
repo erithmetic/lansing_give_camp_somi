@@ -9,14 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100327043217) do
-
-  create_table "event_users", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "event_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20100327060956) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
@@ -28,6 +21,14 @@ ActiveRecord::Schema.define(:version => 20100327043217) do
     t.datetime "updated_at"
   end
 
+  create_table "events_time_blocks", :id => false, :force => true do |t|
+    t.integer "event_id"
+    t.integer "time_block_id"
+  end
+
+  add_index "events_time_blocks", ["event_id"], :name => "index_events_time_blocks_on_event_id"
+  add_index "events_time_blocks", ["time_block_id"], :name => "index_events_time_blocks_on_time_block_id"
+
   create_table "events_users", :id => false, :force => true do |t|
     t.integer "event_id"
     t.integer "user_id"
@@ -35,6 +36,13 @@ ActiveRecord::Schema.define(:version => 20100327043217) do
 
   add_index "events_users", ["event_id"], :name => "index_events_users_on_event_id"
   add_index "events_users", ["user_id"], :name => "index_events_users_on_user_id"
+
+  create_table "time_blocks", :force => true do |t|
+    t.string   "description"
+    t.float    "hours"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"
