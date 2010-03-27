@@ -1,4 +1,4 @@
-<% form_for @user_session do |f| %>
+<% form_for @user_session, :url => sessions_path do |f| %>
   <legend>Enter your email address and password to log in. 
     <%= link_to 'Click here', new_password_resets_url %> to reset your password if 
     you have forgotten it. </legend>
