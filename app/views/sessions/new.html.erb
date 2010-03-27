@@ -1,0 +1,17 @@
+<% form_for @user_session do |f| %>
+  <legend>Enter your email address and password to log in. 
+    <%= link_to 'Click here', new_password_resets_url %> to reset your password if 
+    you have forgotten it. </legend>
+  <fieldset>
+    <ul>
+      <li>
+        <%= f.label :email, 'Email' %>
+        <%= f.text_field :email %>
+      <li>
+      <li>
+        <%= f.label :password, 'Password' %>
+        <%= f.password_field :password %>
+      </li>
+    </ul>
+  </fieldset>
+<% end %>

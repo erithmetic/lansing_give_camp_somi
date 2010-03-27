@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      redirect_to account_url
+      redirect_to home_url
     else
       render :action => :new
     end
@@ -14,6 +14,6 @@ class SessionsController < ApplicationController
 
   def destroy
     current_user_session.destroy
-    redirect_to new_user_session_url
+    redirect_to new_session_url
   end
 end
