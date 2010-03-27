@@ -150,6 +150,12 @@ div#content li {
 
 
 
+div#content p.highlight {
+	background: #ffc;
+	padding: 6px 10px;
+
+}
+
 
 div#content div.event_listing {
 	padding: 15px 0;

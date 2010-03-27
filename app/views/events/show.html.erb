@@ -28,6 +28,11 @@
       <p class="cancel_link">You are currently signed up as a volunteer for this event. <%= link_to 'Cancel your sign up?', polymorphic_url(@event_volunteer), :method => :delete, :confirm => "Are you sure you want to cancel your registration?" %></p>
     <% else %>
       <h2>Sign up for this event as a volunteer</h2>
+      <% if current_user %>
+      	<p class="highlight">You are currently logged into the volunteer coordination system and only need to click "Sign Up" to complete the sign up process. (You will still receive a confirmation e-mail)</p>
+      <% end %>
+      
+      
       <% form_for([@event, @event_volunteer]) do |event_volunteer_form| %>
         <%= event_volunteer_form.error_messages %>
 
@@ -37,10 +42,7 @@
           <% end %>
         <% end %>
 
-        <h3>Are you signing up as group?</h3>
-        <p>
-          Skip this section if you are signing up as an individual.
-        </p>
+        <h3>Are you signing up as group? (Skip this if you're not)</h3>
         <p>
           Insert form fields for group name and number of volunteers.		
         </p>
