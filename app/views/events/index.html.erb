@@ -5,7 +5,9 @@
 
 <% @events.each do |event| %>
 <div class="event_listing">
-    <h3 class="full"><%= link_to event.title, event %></h3>
+
+	<!-- add class="full" to the h3 below to make the 'full' tag appear -->
+    <h3><%= link_to event.title, event %></h3>
     <p class="event_date"><span class="line_heading">Date: </span><%=h event.date.strftime("%A %m/%d/%Y") unless event.date.nil? %></p>
     <p class="event_time"><span class="line_heading">Time: </span><%=h event.timeWithDuration %></p>
     <p class="event_location"><span class="line_heading">Location: </span><%=h event.location %></p>
@@ -28,7 +30,7 @@
 		
 		<p>Need to verify your volunteer hours? We've made it easy!</p>
 		
-		<p><a href="#"><img src="/images/button-login.png" alt="button-login" /></a></p>
+		<p><a href="/users/session"><img src="/images/button-login.png" alt="Log in" /></a></p>
 		
 		<h2>Fundraising opportunities</h2>
 		
@@ -59,4 +61,4 @@
 		</ul>	
 	</div>
 
-	<div class="clear_floats"></div>
+	<div class="clear"></div>
