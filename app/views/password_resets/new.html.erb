@@ -1,6 +1,10 @@
+<% @page_name = "password_reset" %>
+
 <% form_for :password_reset, @password_reset, :url => password_resets_url do |s| %>
-  <fieldset>
-    <legend>Password reset</legend>
+<h1>Reset your password</h1>
+
+<p>Enter your e-mail address and we will promptly send you a new password.</p>
+
     <% unless true || @password_reset.errors.empty? %>
       <div class="errorExplanation" id="errorExplanation">
         <h2>Your attempt to reset your password failed</h2>
@@ -12,12 +16,13 @@
         </ul>
       </div>
     <% end %>
-	
-    <dl>
-      <dt><%= s.label :email %></dt>
-      		<dd class="email"><%= s.text_field :email, :tabindex => 1, :onblur => "javascript:ValidateBox(this)" %></dd>
-    </dl>
-    <%= submit_tag 'Send reset email', :tabindex => 2 %>
-  </fieldset>
+
+<p>
+	<%= s.label :email, "Your e-mail address", :class=>"standard" %><br />
+	<%= s.text_field :email, :class=>"standard", :tabindex => 1, :onblur => "javascript:ValidateBox(this)" %>
+</p>
+
+    <p><%= submit_tag 'Send reset email', :tabindex => 2 %></p>
+    
 <% end %>
 <p class="footer">Do you need to <%= link_to 'sign up', new_user_url %> first?</p>

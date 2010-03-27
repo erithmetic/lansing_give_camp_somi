@@ -26,7 +26,11 @@
 </div></div>
 
 <div id="breadcrumbs"><div class="wrapper">
-	<p><a href="http://www.somi.org/area8/">Area 8 Home</a> > Upcoming Volunteer Opportunities</p>
+	<p><a href="http://www.somi.org/area8/">Area 8 Home</a> > <%= link_to 'Upcoming Volunteer Opportunities', events_path %>
+	<% if @page_name == "password_reset" %> &gt; Reset Password<% end %>
+	<% if @page_name == "log_in" %> &gt; Log In<% end %>
+	
+	</p>
 </div></div>
 
 <div id="content"><div class="wrapper">

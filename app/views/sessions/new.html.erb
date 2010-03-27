@@ -1,30 +1,26 @@
+<% @page_name = "log_in" %>
+
 <% form_for @user_session, :url => sessions_path, :method => :post do |f| %>
-  <legend>Enter your email address and password to log in. 
-    <%= link_to 'Click here', new_password_reset_url %> to reset your password if 
-    you have forgotten it. </legend>
-  <%= error_messages_for :user_session %>
-  <fieldset>
-  	<br/>
-  	<table>
-	  	<tr>
-	  		<td>
-	  			  <%= f.label :email, 'Email' %>
-	  		</td>
-	  		<td>
-	  		<%= f.text_field :email,:onblur => "javascript:ValidateBox(this)"%>	
-	  		</td>
-	    </tr>
-		<tr>
-			<td>
-			<%= f.label :password, 'Password' %>
-			</td>
-			<td>
-	 		<%= f.password_field :password %>
-	 		</td>
-	    </tr>
-    </table>
+
+<h1>Log in</h1>
+
+
+<%= error_messages_for :user_session %>
+
+
+<p>
+	<%= f.label :email, 'Your e-mail address', :class=>"standard" %><br />
+	<%= f.text_field :email, :class=>'standard', :onblur => "javascript:ValidateBox(this)"%>	
+</p>
+<p>
+	<%= f.label :password, 'Your password', :class=>"standard" %><br />
+	<%= f.password_field :password, :class=>"standard" %>
+</p>
+
+
     <p>
       <%= f.submit 'Log in' %>
     </p>
-  </fieldset>
+
+<h2><%= link_to 'Reset your password', new_password_reset_url %></h2>
 <% end %>

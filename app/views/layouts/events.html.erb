@@ -28,6 +28,7 @@
 <p><a href="http://www.somi.org/area8/">Area 8 Home</a>
 <% if @page_name == "events" %> &gt; Upcoming Volunteer Opportunities <% end %>
 <% if @page_name == "show" %> &gt; <%= link_to 'Upcoming Volunteer Opportunities', events_path %> &gt; <%= @title %><% end %>
+<% if @page_name == "password_reset" %> &gt; <%= link_to 'Upcoming Volunteer Opportunities', events_path %> &gt; Reset Password<% end %>
 </p>
   
 </div></div>
