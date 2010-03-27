@@ -29,10 +29,40 @@
 <div id="content_top"></div>
 <div id="content_area">
 
-<p style="color: green"><%= flash[:notice] %></p>
+	<div id="left">
+		<%= flash[:notice] %>
+		<%= yield %>
+	</div>
+	
+	<div id="right">
+	
+		<h2 class="no_margin">Why volunteer?</h2>
+		<p>Aliquam quam libero, tristique eget posuere eu, elementum sed sapien. Nulla enim diam, tempor vel condimentum in, dapibus at magna. Nullam eu tortor est, si.</p>
+	
+		<h2>Track &amp; share</h2>
+		
+		<p>Placeholder for a login box or button.</p>
+		
+		<h2>More ways you can help</h2>
+		
+		<p>Attend a fundraising event!</p>
+		
+		<h2>News</h2>
+		
+		<ul>
+			<li>
+				<a href="#">Egypt's Mubarak 'returning home'</a>
+			</li>
+			<li>
+				<a href="#">Thai red shirts confront troops</a>
+			</li>
+			<li>
+				<a href="#">Burma stages army parade  </a>
+			</li>
+		</ul>	
+	</div>
 
-<%= yield %>
-
+	<div class="clear"></div>
 
 </div>
 <div id="content_bot"></div>

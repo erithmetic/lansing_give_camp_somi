@@ -29,6 +29,15 @@ div#content {
 		padding: 0 20px;
 	}
 
+	div#left {
+		width: 480px;
+		float: left;
+	}
+	
+	div#right {
+		width: 280px;
+		float: right;
+	}
 
 
 /*
@@ -44,7 +53,7 @@ body {
 
 
 div#header {
-	background: #fff;
+
 }
 
 div#content_top {
@@ -85,10 +94,15 @@ div#content h2 {
 	font-size: 1em;
 	text-transform: uppercase;
 	font-weight: bold;
+	
+	padding: 0.7em 0 0.3em 0;
 }
 
+	div#content h2.no_margin { padding: 0; }
+
 div#content h3 {
-	font-size: 0.9em;
+	font-size: 1em;
+	
 }
 
 div#content p, div#content ul, div#content ol {
@@ -98,12 +112,32 @@ div#content p, div#content ul, div#content ol {
 }
 
 	div#content ol, div#content ul {
-		margin-left: 20px;
+		list-style: disc;
+		margin-left: 15px;
 	}
 	
 div#content li {
 	padding: 3px 0;
 }
 
+
+
+
+div#content div.event_listing {
+	padding: 15px 0;
+	border-bottom: 1px solid #c1c1a3;
+}
+
+	div#content div.event_listing h3 {
+		padding-bottom: 0.2em;
+		font-size: 1.2em;
+	}
+
+	div#content div.event_listing p {
+		font-weight: bold;
+		line-height: 1em;
+		padding: 0.1em 0;
+		text-transform: uppercase;
+	}
 
 
