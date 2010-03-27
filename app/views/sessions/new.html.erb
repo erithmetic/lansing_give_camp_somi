@@ -4,14 +4,25 @@
     you have forgotten it. </legend>
   <%= error_messages_for :user_session %>
   <fieldset>
-    <p>
-      <%= f.label :email, 'Email' %>
-      <%= f.text_field :email %>
-    <p>
-    <p>
-      <%= f.label :password, 'Password' %>
-      <%= f.password_field :password %>
-    </p>
+  	<br/>
+  	<table>
+	  	<tr>
+	  		<td>
+	  			  <%= f.label :email, 'Email' %>
+	  		</td>
+	  		<td>
+	  		<%= f.text_field :email,:onblur => "javascript:ValidateBox(this)"%>	
+	  		</td>
+	    </tr>
+		<tr>
+			<td>
+			<%= f.label :password, 'Password' %>
+			</td>
+			<td>
+	 		<%= f.password_field :password %>
+	 		</td>
+	    </tr>
+    </table>
     <p>
       <%= f.submit 'Log in' %>
     </p>

@@ -8,18 +8,16 @@ function CheckEmail( emailAddress )
 	return true;
 }
 
-function Change()
+function ValidateBox( element )
 {
-	
-	var textFieldElement = document.getElementById("user_email");
-	var email = textFieldElement.value;
+	var email = element.value;
 	if( !CheckEmail(email))
 	{
-		textFieldElement.setAttribute("class","fieldWithErrors");
+		element.setAttribute("class","emailError");
 	}
 	else
 	{
-		textFieldElement.removeAttribute("class");
+		element.removeAttribute("class");
 	}
 
 }
