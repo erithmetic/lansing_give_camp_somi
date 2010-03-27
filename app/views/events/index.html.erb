@@ -7,9 +7,8 @@
 <div class="event_listing">
     <h3 class="full"><%= link_to event.title, event %></h3>
     <p class="event_date"><span class="line_heading">Date: </span><%=h event.date.strftime("%A %m/%d/%Y") unless event.date.nil? %></p>
-    <p class="event_time"><span class="line_heading">Time: </span><%=h event.date.strftime("%I:%M %p") unless event.date.nil? %></p>
+    <p class="event_time"><span class="line_heading">Time: </span><%=h event.timeWithDuration %></p>
     <p class="event_location"><span class="line_heading">Location: </span><%=h event.location %></p>
-    <p class="event_hours"><span class="line_heading">Duration: </span><%=h event.number_of_hours %> hours</p>
 	<p class="event_volunteers"><span class="line_heading">Volunteers: </span><%=h event.users.count %></p>
 </div>
 <% end %>

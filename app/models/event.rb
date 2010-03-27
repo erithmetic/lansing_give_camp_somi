@@ -11,7 +11,16 @@ class Event < ActiveRecord::Base
   validates_numericality_of :minimum_volunteers, :only_integer => true,
                             :greater_than_or_equal_to => 0, :allow_nil => true
 
-  def time
-    date.strftime("%H:%M:%S")
+  def timeWithDuration
+  	laterDate = date + number_of_hours.hours
+  	
+  	if number_of_hours <= 1
+  		hourOrHours = "hour"
+  	else
+  		hourOrHours = "hours"
+  	end
+  	
+	return date.strftime("%I:%M %p")+" - "+laterDate.strftime("%I:%M %p")+" (%i "%number_of_hours+hourOrHours+" )" 
+
   end
 end
