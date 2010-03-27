@@ -10,7 +10,7 @@ body {
 }
 
 div.wrapper {
-	width: 800px;
+	width: 806px;
 	padding: 0 20px;
 	margin: 0 auto;
 }
@@ -43,11 +43,17 @@ div#header {
 
 /* content_top is strictly a styling div to get the rounded corner thing in nicely. */
 div#content_top {
-
+	background: transparent url(../images/bg-content-top.png) top center no-repeat;
+	height: 31px;
 }
 
-div#content {
-	
+div#content_bot {
+	background: transparent url(../images/bg-content-bot.png) top center no-repeat;
+	height: 24px;
+}
+
+div#content div.wrapper {
+	background: transparent url(../images/bg-content-repeat.png) center repeat-y;
 }
 
 div#content a:link, div#content a:visited, div#content a:hover {
