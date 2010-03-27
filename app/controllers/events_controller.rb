@@ -12,4 +12,8 @@ class EventsController < ResourceController::Base
     event_user = current_user || User.new
     @event_volunteer ||= EventVolunteer.new(:user => event_user)
   end
+
+	index.before do
+		@newsitems = NewsItem.find(:all);
+	end
 end
