@@ -25,7 +25,9 @@ div#content {
 	padding-top: 50px;
 }
 
-
+	div#content_area {
+		padding: 0 20px;
+	}
 
 
 
@@ -35,7 +37,7 @@ div#content {
 
 body {
 	font-family: Arial, Verdana, sans-serif;
-	background: #e3e3ce url(/images/bg-content-top.gif) top repeat-x;
+	background: #e3e3ce url(/images/bg-body-repeat.gif) top repeat-x;
 }
 
 
@@ -45,7 +47,6 @@ div#header {
 	background: #fff;
 }
 
-/* content_top is strictly a styling div to get the rounded corner thing in nicely. */
 div#content_top {
 	background: transparent url(/images/bg-content-top.png) top center no-repeat;
 	height: 31px;
@@ -81,11 +82,28 @@ div#content h1 {
 
 div#content h2 {
 	color: #659a56;
-	font-size: 1.1em;
+	font-size: 1em;
 	text-transform: uppercase;
 	font-weight: bold;
 }
 
+div#content h3 {
+	font-size: 0.9em;
+}
+
+div#content p, div#content ul, div#content ol {
+	font-size: 0.8em;
+	padding: 0.5em 0;
+	line-height: 1.4em;
+}
+
+	div#content ol, div#content ul {
+		margin-left: 20px;
+	}
+	
+div#content li {
+	padding: 3px 0;
+}
 
 
 
