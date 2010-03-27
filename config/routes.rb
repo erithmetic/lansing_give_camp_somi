@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :news_items
+
+  map.resources :newsitems
+
+  map.resources :news
+
   map.resources :users
 
   map.resources :events, :has_many => :event_volunteers

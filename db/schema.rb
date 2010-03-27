@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100327174747) do
+ActiveRecord::Schema.define(:version => 20100327214339) do
 
   create_table "event_volunteers", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(:version => 20100327174747) do
 
   create_table "groups", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news_items", :force => true do |t|
+    t.string   "name"
+    t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -69,6 +76,8 @@ ActiveRecord::Schema.define(:version => 20100327174747) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin"
+    t.integer  "group_id"
+    t.integer  "count"
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
@@ -81,8 +90,6 @@ ActiveRecord::Schema.define(:version => 20100327174747) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.integer  "group_id"
-    t.integer  "count"
   end
 
 end

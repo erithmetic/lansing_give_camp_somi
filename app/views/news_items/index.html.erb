@@ -1,0 +1,21 @@
+<h1>Manage news items</h1>
+
+<table id="newsitems">
+  <tr>
+    <th>Name</th>
+    <th>Link</th>
+  </tr>
+
+<% @news_items.each do |news_item| %>
+  <tr>
+    <td class="newsname"><%=h news_item.name %></td>
+    <td class="newslink"><%= link_to news_item.link, news_item.link %></td>
+    <td class="newsaction"><%= link_to 'View', news_item %></td>
+    <td class="newsaction"><%= link_to 'Edit', edit_news_item_path(news_item) %></td>
+    <td class="newsaction"><%= link_to 'Delete', news_item, :confirm => 'Are you sure you want to delete this news item?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<b><%= link_to 'Add a news item', new_news_item_path %></b>

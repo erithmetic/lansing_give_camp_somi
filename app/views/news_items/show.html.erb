@@ -1,0 +1,13 @@
+<h1>News Item</h1>
+(<%= link_to 'edit item', edit_news_item_path(@news_item) %>)
+<p>
+  <h3>Name:</h3>
+  <%=h @news_item.name %>
+</p>
+<p>
+  <h3>Link:</h3>
+  <%= link_to @news_item.link, @news_item.link %>
+</p>
+<br />
+<br />
+<b><%= link_to 'Go back to manage your news items', news_items_path %></b>

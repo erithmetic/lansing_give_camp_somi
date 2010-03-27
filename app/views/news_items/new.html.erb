@@ -1,0 +1,19 @@
+<h1>Add a news item</h1>
+
+<% form_for(@news_item) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <b><%= f.label :name %></b><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <b><%= f.label :link %></b> <sup>(e.g. http://www.example.com)</sup><br />
+    <%= f.text_field :link %>
+  </p>
+  <p>
+    <%= f.submit 'Add' %>
+  </p>
+<% end %>
+<br />
+<b><%= link_to 'Go back to manage your news items', news_items_path %></b>

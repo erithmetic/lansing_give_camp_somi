@@ -1,18 +1,20 @@
+<br />
+<br />
+<h1>User Profile</h1>
+<b>(<%=h @user.name %>)</b> <sup><%= link_to 'edit profile', edit_user_path(@user) %></sup><br />
+<br />
+<h2>Your information</h2>
 <p>
   <b>Email:</b>
   <%=h @user.email %>
 </p>
 
 <p>
-  <b>Name:</b>
-  <%=h @user.name %>
-</p>
-
-<p>
   <b>Phone:</b>
   <%=h @user.phone %>
 </p>
-
+<br />
+<h2>Your address</h2>
 <p>
   <b>Address1:</b>
   <%=h @user.address1 %>
@@ -39,5 +41,4 @@
 </p>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
