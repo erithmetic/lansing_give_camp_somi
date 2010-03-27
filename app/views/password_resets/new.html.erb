@@ -1,0 +1,22 @@
+<% form_for :password_reset, @password_reset, :url => password_resets_url do |s| %>
+  <fieldset>
+    <legend>Password reset</legend>
+    <% unless true || @password_reset.errors.empty? %>
+      <div class="errorExplanation" id="errorExplanation">
+        <h2>Your attempt to reset your password failed</h2>
+        <p>There were problems with the following fields:</p>
+        <ul>
+          <li>
+            Email <%= @password_reset.errors[:email] %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+    <dl>
+      <dt><%= s.label :email %></dt>
+      <dd class="email"><%= s.text_field :email, :tabindex => 1 %></dd>
+    </dl>
+    <%= submit_tag 'Send reset email', :tabindex => 2 %>
+  </fieldset>
+<% end %>
+<p class="footer">Do you need to <%= link_to 'sign up', new_user_url %> first?</p>
