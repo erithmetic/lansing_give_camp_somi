@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100327012904) do
+ActiveRecord::Schema.define(:version => 20100327022524) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
@@ -19,6 +19,20 @@ ActiveRecord::Schema.define(:version => 20100327012904) do
     t.float    "number_of_hours"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "name"
+    t.string   "phone"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "admin"
   end
 
 end
