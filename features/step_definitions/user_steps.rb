@@ -7,7 +7,7 @@ Given /a user with email "(.+)" and password "(.+)" exists/ do |email, password|
 end
 
 Given /I am logged in as an existing user with email "(.+)" and password "(.+)"/ do |email, password|
-  Given("a user named \"#{email}\" with password \"#{password}\" exists")
+  Given("a user with email \"#{email}\" and password \"#{password}\" exists")
 end
 
 When /I edit my profile/ do
