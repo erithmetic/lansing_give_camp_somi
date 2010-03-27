@@ -17,4 +17,27 @@ private
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.user
   end
+
+  def require_person
+    unless current_user
+      flash[:notice] = "You must be logged in to access this page"
+      unauthorized
+    end
+  end
+
+  def require_manager
+    forbid unless current_user.admin?
+  end
+
+  def forbid
+    render :file => "#{Rails.root}/public/403.html",
+           :status => 403
+    false
+  end
+
+  def unauthorized
+    render :template => 'sessions/new',
+           :status => 401
+    false
+  end
 end
