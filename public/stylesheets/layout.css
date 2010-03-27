@@ -27,7 +27,7 @@ div#content {
 }
 
 /*
-	Backgrounds, colors, etc.
+	Backgrounds, colors, sizes, etc.
 */
 
 body {
@@ -47,5 +47,22 @@ div#content_top {
 }
 
 div#content {
-	display: block;
+	
+}
+
+div#content a:link, div#content a:visited, div#content a:hover {
+	color: #4363bf;
+	text-decoration: none;
+}
+
+	div#content a:hover {
+		text-decoration: underline;
+	}
+
+div#content h1 {
+
+}
+
+div#content h2 {
+	color: #659a56;
 }
