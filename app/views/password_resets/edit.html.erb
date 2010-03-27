@@ -1,0 +1,11 @@
+<% form_for :password_reset, @password_reset, :url => password_reset_url(params[:id]), 
+            :html => { :method => :put } do |s| %>
+  <fieldset>
+    <legend>Enter your new password below</legend>
+    <dl>
+      <dt><%= s.label :password %></dt>
+      <dd class="password"><%= s.password_field :password, :tabindex => 1 %></dd>
+    </dl>
+    <%= submit_tag 'Set my password', :tabindex => 2 %>
+  </fieldset>
+<% end %>
