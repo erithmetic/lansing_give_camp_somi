@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(:version => 20100327152824) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin"
+    t.integer  "group_id"
+    t.integer  "count"
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
@@ -80,8 +82,6 @@ ActiveRecord::Schema.define(:version => 20100327152824) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.integer  "group_id"
-    t.integer  "count"
   end
 
 end

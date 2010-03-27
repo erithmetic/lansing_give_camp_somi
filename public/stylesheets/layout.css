@@ -168,6 +168,26 @@ div#content div.event_listing {
 
 
 
+div#content label.standard {
+	font-weight: bold;
+	color: #555;
+	text-transform: uppercase;
+}
+
+div#content input.standard {
+	padding: 3px;
+	font-size: 1.1em;
+	color: #444;
+	font-family: Courier;
+	letter-spacing: 1px;
+}
+
+	div#content input.standard:focus {
+		color: #222;
+	}
+
+
+
 div#footer p {
 	padding: 0.8em 23px;
 	font-size: 0.8em;
