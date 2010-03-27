@@ -2,7 +2,6 @@
  
 <% @events.each do |event| %>
 <div class="event_listing">
-
     <h3><%= link_to event.title, event %></h3>
     <div class="event_date">Date: <%=h event.date.strftime("%A %m/%d/%Y") unless event.date.nil? %></div>
     <div class="event_time">Time: <%=h event.date.strftime("%I:%M %p") unless event.date.nil? %></div>
