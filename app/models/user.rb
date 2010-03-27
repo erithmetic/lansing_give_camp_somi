@@ -1,3 +1,4 @@
 class User < ActiveRecord::Base
-	has_and_belongs_to_many :events
+	has_many :events, :through => :event_volunteers
+	has_many :event_volunteers
 end
