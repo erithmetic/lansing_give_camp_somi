@@ -10,34 +10,34 @@
 	</div>
 	<div class="event_signup">
 		<h3>Sign up for this event</h3>
-		<% form_for(@user) do |f| %>
-  		<%= f.error_messages %>
-		<div id="event_signup_left">
-			<div class="event_signup_email">
-    	<%= f.label :email %><br />
-    	<%= f.text_field :email %>
+		<% form_for @event do |event_form| %>
+			<% event_form.fields_for User.new do |user_form| %>
+  		<%= event_form.error_messages %>
+			<div id="event_signup_left">
+				<div class="event_signup_email">
+	    		<%= user_form.label :email %><br />
+	    		<%= user_form.text_field :email %>
+				</div>
+				<div class="event_signup_name">
+	    		<%= user_form.label :name %><br />
+	    		<%= user_form.text_field :name %>
+				</div>
+				<div class="event_signup_phone">
+	    		<%= user_form.label :phone %><br />
+	    		<%= user_form.text_field :phone %>
+				</div>
 			</div>
-
-			<div class="event_signup_name">
-    	<%= f.label :name %><br />
-    	<%= f.text_field :name %>
+			<div id="event_signup_right">
+	    	<%= user_form.label :address1 %><br />
+	    	<%= user_form.text_field :address1 %>
+	    	<%= user_form.label :address2 %><br />
+	    	<%= user_form.text_field :address2 %>
+	    	<%= user_form.label :city %><br />
+	    	<%= user_form.text_field :address1 %>
 			</div>
-
-			<div class="event_signup_phone">
-    	<%= f.label :phone %><br />
-    	<%= f.text_field :phone %>
-			</div>
-		</div>
-		<div id="event_signup_right">
-    	<%= f.label :address1 %><br />
-    	<%= f.text_field :address1 %>
-    	<%= f.label :address2 %><br />
-    	<%= f.text_field :address2 %>
-    	<%= f.label :city %><br />
-    	<%= f.text_field :address1 %>
-		</div>
+		<% end %>
 		<div id="event_signup_footer">
-			<%= f.submit 'Sign Up' %> 	
+			<%= event_form.submit 'Sign Up' %> 	
 		</div>
 		<% end %>
 	</div>
