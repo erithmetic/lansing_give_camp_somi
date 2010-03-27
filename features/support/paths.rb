@@ -18,6 +18,10 @@ module NavigationHelpers
       '/sign-out'
     when /the password reset email page/
       '/password_resets/new'
+    when /the new event page/
+      '/events/new'
+    when /the events page/
+      '/events'
     else
       if page_name =~ /^\//
         page_name
