@@ -22,6 +22,8 @@ Rails::Initializer.run do |config|
   
   config.gem 'rspec', :lib => 'spec'
   config.gem 'authlogic'
+  config.gem 'resource_controller'
+  config.gem 'cucumber'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
