@@ -48,17 +48,12 @@
 		</ul>	
 				
 		<h2>News</h2>
-		
 		<ul>
+			<% @newsitems.each do |newsitem| %>
 			<li>
-				<a href="#">Egypt's Mubarak 'returning home'</a>
+				<%= link_to newsitem.name, newsitem.link %>		
 			</li>
-			<li>
-				<a href="#">Thai red shirts confront troops</a>
-			</li>
-			<li>
-				<a href="#">Burma stages army parade  </a>
-			</li>
+			<% end %>
 		</ul>	
 	</div>
 
