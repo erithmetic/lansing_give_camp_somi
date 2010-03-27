@@ -155,15 +155,49 @@ div#content div.event_listing {
 }
 
 	div#content div.event_listing h3 {
-		padding-bottom: 0.2em;
+		padding: 0.2em 0;
 		font-size: 1.2em;
 	}
+	
+		div#content div.event_listing h3.full {
+			padding-left: 41px;
+			background: transparent url(../images/icons/icon-full.png) center left no-repeat;
+		
+		}
 
 	div#content div.event_listing p {
+		padding: 4px 0 4px 18px;
+		
+		background: transparent url(../images/icons/arrow_right_alt1_12x12.png) center left no-repeat;	
+	}
+	
+
+	div#content div.event_listing p.event_date {
+		background: transparent url(../images/icons/calendar_alt_fill_12x12.png) center left no-repeat;	
+	}
+	
+	div#content div.event_listing p.event_time {
+		background: transparent url(../images/icons/clock_12x12.png) center left no-repeat;	
+	}
+	
+	div#content div.event_listing p.event_location {
+		background: transparent url(../images/icons/map_pin_fill_12x12.png) 2px center no-repeat;	
+	}
+	
+	div#content div.event_listing p.event_hours, div#content div.event_listing p.event_volunteers {
+		
+	
+	}
+	
+	div#content div.event_listing p {
+		color: #222;
+		text-transform: uppercase;	
+	}
+	
+	div#content div.event_listing p span.line_heading {
 		font-weight: bold;
-		line-height: 1em;
-		padding: 0.1em 0;
 		text-transform: uppercase;
+		color: #5d504f;
 	}
 
 

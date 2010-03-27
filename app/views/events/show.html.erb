@@ -2,24 +2,30 @@
 
 <h1><%=h @event.title %></h1>
 
-
-<div class="event_left">
-	<h2>Details</h2>
-	<div class="event_listing">
-		<p class="event_date"><%=h @event.date.strftime("%m/%d/%Y") %></p>
-		<p class="event_time"><%=h @event.date.strftime("%I:%M %p") %></p>
-		<p class="event_location"><%=h @event.location %></p>
-		<p class="event_volunteers"><%=h @event.users.count %> volunteers signed up (# remaining)</p>
-		<p class="event_hours"><%=h @event.number_of_hours %></p>
+<div class="event_listing">
+	<div class="event_left">
+	
+		<h2>Details</h2>
+	
+			<p class="event_date"><span class="line_heading">Date: </span><%=h @event.date.strftime("%m/%d/%Y") %></p>
+			<p class="event_time"><span class="line_heading">Time: </span><%=h @event.date.strftime("%I:%M %p") %></p>
+			<p class="event_location"><span class="line_heading">Location: </span><%=h @event.location %></p>
+			<p class="event_hours"><span class="line_heading">Duration: </span><%=h @event.number_of_hours %> hours</p>
+			<p class="event_volunteers"><span class="line_heading">Volunteers Signed Up: </span><%=h @event.users.count %> (# more requested)</p>
+	
 	</div>
-</div>
 
-<div class="event_right">
-	<h2>Description</h2>
-	<p><%=h @event.description %></p>
-</div>
 
-<div class="clear"></div>	
+	<div class="event_right">
+	
+		<h2>Description</h2>
+		<p><%=h @event.description %></p>
+		
+	</div>
+
+	<div class="clear"></div>	
+
+</div>
 
 <h2>Signup for this event as a volunteer</h2>
 <% form_for(@user) do |f| %>
