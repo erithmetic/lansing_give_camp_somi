@@ -2,7 +2,7 @@
 
 <h1><%=h @event.title %></h1>
 
-<div class="event_listing clear less_padding">
+<div class="event_listing clear_this less_padding">
 	<div class="event_left">
 	
 		<h2>Details</h2>
@@ -23,47 +23,68 @@
 
   <div class="event_signup">
     <% if current_user and current_user.signed_up_for?(@event) %>
-      <%= link_to 'cancel my volunteer sign-up', polymorphic_url(@event_volunteer), :method => :delete, :confirm => "Are you sure you want to cancel your registration?" %>
+      <p class="cancel_link">You are currently signed up as a volunteer for this event. <%= link_to 'Cancel your sign up?', polymorphic_url(@event_volunteer), :method => :delete, :confirm => "Are you sure you want to cancel your registration?" %></p>
     <% else %>
       <h2>Sign up for this event as a volunteer</h2>
       <% form_for([@event, @event_volunteer]) do |event_volunteer_form| %>
         <%= event_volunteer_form.error_messages %>
         <% event_volunteer_form.fields_for :user do |user_form| %>
-          <h3>Your information</h3>
-          <div id="event_left">
+          
+          
+          <div class="event_left">
+          
+          	<h3>Contact Information</h3>
+          
             <p>
-            <%= user_form.label :email %><br />
-            <%= user_form.text_field :email %>
+            	<%= user_form.label :email, "E-mail Address", :class=>"standard" %><br />
+            	<%= user_form.text_field :email, :class=>"standard" %>
             </p>
             <p>
-            <%= user_form.label :name %><br />
-            <%= user_form.text_field :name %>
+            	<%= user_form.label :name, "Your Name", :class=>"standard" %><br />
+            	<%= user_form.text_field :name, :class=>"standard" %>
             </p>
             <p>
-            <%= user_form.label :phone %><br />
-            <%= user_form.text_field :phone %>
+            	<%= user_form.label :phone, "Phone Number", :class=>"standard" %><br />
+            	<%= user_form.text_field :phone, :class=>"standard" %>
             </p>
           </div>
-          <div id="event_right">
-            <%= user_form.label :address1 %><br />
-            <%= user_form.text_field :address1 %>
-            <%= user_form.label :address2 %><br />
-            <%= user_form.text_field :address2 %>
-            <%= user_form.label :city %><br />
-            <%= user_form.text_field :address1 %>
+          
+          <div class="event_right">
+          
+          	<h3>Your Address</h3>
+          
+          	<p>
+          		<%= user_form.label :address1, "Address", :class=>"standard" %><br />
+           		<%= user_form.text_field :address1, :class=>"standard" %>
+          	</p>
+          	
+          	<p>
+          		<%= user_form.label :address2, "Address (2nd line)", :class=>"standard" %><br />
+            	<%= user_form.text_field :address2, :class=>"standard" %>
+          	</p>
+            
+            <p>
+            	<%= user_form.label :city, "City", :class=>"standard" %><br />
+            	<%= user_form.text_field :city, :class=>"standard" %>	
+            </p>
+            
           </div>
           <div class="clear"></div>
-        <% end %>
-        <h3>Are you signing up a group?</h3>
+          
+        
+        <h3>Are you signing up as group?</h3>
         <p>
           Skip this section if you are signing up as an individual.
         </p>
         <p>
           Insert form fields for group name and number of volunteers.		
         </p>
-        <div id="event_signup_footer">
-          <%= event_volunteer_form.submit 'Sign Up' %> 	
-        </div>
+        
+        <% end %>
+        
+		<p>
+	    <%= event_volunteer_form.submit 'Sign Up as a Volunteer' %> or <%= link_to 'go back to see all opportunities', events_path %>	
+        </p>
       <% end %>
     <% end %>
   </div>

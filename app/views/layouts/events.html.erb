@@ -33,7 +33,12 @@
 <div id="content_top"></div>
 <div id="content_area">
 
-	<%= flash[:notice] %>
+	<% if flash[:notice] %>
+		<div id="notice">
+			<p><%= flash[:notice] %></p>
+		</div>
+	<% end %>
+	
 	<%= yield %>
 	
 </div>
@@ -42,7 +47,7 @@
 
 <div id="footer"><div class="wrapper">
 
-	<p>If you have any problems or questions, do not hesitate to <a href="#">contact us</a>.</p>
+	<p>If you have any problems or questions, do not hesitate to call at (517) 885-1175.</p>
 
 </div></div>
 
