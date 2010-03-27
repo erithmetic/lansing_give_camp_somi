@@ -9,6 +9,7 @@ class EventsController < ResourceController::Base
     if current_user
       @event_volunteer = object.event_volunteers.find_by_user_id(current_user.id)
     end
-    @event_volunteer ||= EventVolunteer.new
+    event_user = current_user || User.new
+    @event_volunteer ||= EventVolunteer.new(:user => event_user)
   end
 end
