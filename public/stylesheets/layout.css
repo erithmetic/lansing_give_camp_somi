@@ -1,0 +1,51 @@
+.clear{clear:both;}.hide{position:absolute;left:-9999px;}
+
+/*
+	Positioning
+*/
+
+
+body {
+
+}
+
+div.wrapper {
+	width: 800px;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+div#header {
+
+
+}
+
+
+div#content {
+
+
+}
+
+/*
+	Backgrounds, colors, etc.
+*/
+
+body {
+	font-family: Arial, Verdana, sans-serif;
+}
+
+
+
+
+div#header {
+	background: #fff;
+}
+
+/* content_top is strictly a styling div to get the rounded corner thing in nicely. */
+div#content_top {
+
+}
+
+div#content {
+	display: block;
+}
