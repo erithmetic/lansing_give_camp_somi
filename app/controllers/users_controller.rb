@@ -10,7 +10,9 @@ class UsersController < ResourceController::Base
       @upcoming_events = Event.upcoming
       @past_events = Event.past
     else
-      @other_upcoming = Event.upcoming - object.events.upcoming
+      @upcoming_events = object.events.upcoming
+      @past_events = object.events.past
+      @other_upcoming = Event.upcoming - @upcoming_events
     end
   end
   show.wants.html do

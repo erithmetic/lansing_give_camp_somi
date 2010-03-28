@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
     end
   end
 
-  named_scope :past, :conditions => ['date <= ?', Time.now]
+  named_scope :past, :conditions => ['date <= ?', Time.now], :order => 'date DESC'
   named_scope :upcoming, :conditions => ['date > ?', Time.now], :order => 'date ASC'
 
   validates_presence_of :title
@@ -29,6 +29,12 @@ class Event < ActiveRecord::Base
   end
   
   def full?
+    return false if maximum_volunteers.blank?
   	return users.count >= maximum_volunteers
+  end
+
+  def under_volunteered?
+    min = minimum_volunteers || 0
+    total_volunteers < min
   end
 end
