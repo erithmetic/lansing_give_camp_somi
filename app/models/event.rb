@@ -18,6 +18,8 @@ class Event < ActiveRecord::Base
   
   default_value_for :maximum_volunteers, 0
   default_value_for :minimum_volunteers, 0
+  default_value_for :closed, false
+  default_value_for :subject_to_cancellation, false
 
   def past?
     return false if date.nil?

@@ -13,9 +13,9 @@
 			<p class="event_location"><span class="line_heading">Location: </span><%=h @event.location %></p>
 			<p class="event_volunteers"><span class="line_heading">Volunteers Signed Up: </span><%=h event_volunteers(@event) %></p>
 			
-			<!-- INSERT logic to determine if the "subject to cancellation" flag is on -->
-			<p class="event_cancellation"><span>This event is subject to cancellation</span><br />We will contact you ahead of time if it is canceled.</p>
-			<!-- end logic -->
+      <% if @event.subject_to_cancellation %>
+        <p class="event_cancellation"><span>This event is subject to cancellation</span><br />We will contact you ahead of time if it is canceled.</p>
+      <% end %>
 			
 	</div>
 	<div class="event_right">
@@ -24,23 +24,26 @@
 	</div>
 </div>
 
-  <div class="event_signup">
+<div class="event_signup">
+  <% if @event.closed? %>
+    Sorry, this event is closed to volunteers.
+  <% else %>
     <% if current_user and current_user.signed_up_for?(@event) %>
       <p class="cancel_link">You are currently signed up as a volunteer for this event. <%= link_to 'Cancel your sign up?', polymorphic_url(@event_volunteer), :method => :delete, :confirm => "Are you sure you want to cancel your registration?" %></p>
     <% else %>
     
-		<% if current_user %>
-		<p class="highlight" style="margin-top: 15px;">You are currently logged into the volunteer coordination system and only need to click "Sign Up" to complete the sign up process. (You will still receive a confirmation e-mail)</p>
-		<% end %>
+      <% if current_user %>
+      <p class="highlight" style="margin-top: 15px;">You are currently logged into the volunteer coordination system and only need to click "Sign Up" to complete the sign up process. (You will still receive a confirmation e-mail)</p>
+      <% end %>
 
-    
-    
-    <% if @event.users.count < @event.maximum_volunteers %>
-    <h2>Sign up for this event as a volunteer</h2>
-    <% else %>
-    <h2>Sign up for this event as an alternate*</h2>
-    <p>*This event is already has as many volunteers as we think we'll need. If you continue to sign up, we will put you down as an alternate. Alternates do not need to come to the event UNLESS we call you beforehand.</p>
-    <% end %>
+      
+      
+      <% if @event.users.count < @event.maximum_volunteers %>
+      <h2>Sign up for this event as a volunteer</h2>
+      <% else %>
+      <h2>Sign up for this event as an alternate*</h2>
+      <p>*This event is already has as many volunteers as we think we'll need. If you continue to sign up, we will put you down as an alternate. Alternates do not need to come to the event UNLESS we call you beforehand.</p>
+      <% end %>
     
          
       
@@ -53,20 +56,20 @@
           <% end %>
         <% end %>
 		
-	<% if @event.users.count < @event.maximum_volunteers %>	
-        <h3>Are you signing up as group? (Skip this if you're not)</h3>
-        <p>
-          <%= event_volunteer_form.label :number_in_group, 'Number of Volunteers in your Group', :class=>"standard" %><br />
-          <%= event_volunteer_form.text_field :number_in_group, :class => 'small_number' %>
-        </p>
-    <% end %> 
-        <% if @event.users.count >= @event.maximum_volunteers %>
-    	<p>*This event is already has as many volunteers as we think we'll need. If you continue to sign up, we will put you down as an alternate. Alternates do not need to come to the event UNLESS we call you beforehand.</p>
-    	<% end %>
-        
-        <p>
-          <%= event_volunteer_form.submit 'Sign Up' %> or <%= link_to 'go back to see all opportunities', events_path %>	
-        </p>
+        <% if @event.users.count < @event.maximum_volunteers %>	
+          <h3>Are you signing up as group? (Skip this if you're not)</h3>
+          <p>
+            <%= event_volunteer_form.label :number_in_group, 'Number of Volunteers in your Group', :class=>"standard" %><br />
+            <%= event_volunteer_form.text_field :number_in_group, :class => 'small_number' %>
+          </p>
+        <% end %> 
+          <% if @event.users.count >= @event.maximum_volunteers %>
+            <p>*This event is already has as many volunteers as we think we'll need. If you continue to sign up, we will put you down as an alternate. Alternates do not need to come to the event UNLESS we call you beforehand.</p>
+          <% end %>
+          <p>
+            <%= event_volunteer_form.submit 'Sign Up' %> or <%= link_to 'go back to see all opportunities', events_path %>	
+          </p>
+        <% end %>
       <% end %>
     <% end %>
   </div>

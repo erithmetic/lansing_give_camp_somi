@@ -28,6 +28,16 @@
     <%= f.label :maximum_volunteers, 'Maximum number of Volunteers', :class=>"standard" %><br />
     <%= f.text_field :maximum_volunteers, :class=>"standard", :size=>"3" %>
   </p>
+  <% unless event.new_record? %>
+    <p>
+      <%= f.label :closed, 'Closed', :class=>"standard" %><br />
+      <%= f.check_box :closed %>
+    </p>
+  <% end %>
+  <p>
+    <%= f.label :subject_to_cancellation, 'Subject to cancellation', :class=>"standard" %><br />
+    <%= f.check_box :subject_to_cancellation %>
+  </p>
   <p>
     <%= f.submit 'Create' %> or <%= link_to 'cancel and go back', events_path %>
   </p>

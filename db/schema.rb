@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100328123300) do
+ActiveRecord::Schema.define(:version => 20100328154836) do
 
   create_table "event_volunteers", :force => true do |t|
     t.integer  "user_id",         :null => false
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20100328123300) do
     t.datetime "updated_at"
     t.integer  "minimum_volunteers"
     t.integer  "maximum_volunteers"
+    t.boolean  "closed"
+    t.boolean  "subject_to_cancellation"
   end
 
   create_table "fund_raisings", :force => true do |t|
