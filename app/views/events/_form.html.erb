@@ -38,8 +38,13 @@
     <%= f.label :subject_to_cancellation, 'Subject to cancellation', :class=>"standard" %><br />
     <%= f.check_box :subject_to_cancellation %>
   </p>
-  <p>
-    <%= f.submit 'Create' %> or <%= link_to 'cancel and go back', events_path %>
+  
+  	<p>
+	<% if @page_name == "edit_event" %>
+  		<%= f.submit 'Save Your Edits' %> or <%= link_to 'cancel and go back', events_path %>
+	<% else %>
+        <%= f.submit 'Create New Event' %> or <%= link_to 'cancel and go back', events_path %>
+    <% end %>
   </p>
 <% end %>
 

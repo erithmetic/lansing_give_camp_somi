@@ -3,7 +3,7 @@ body, div#content_area {
 }
 
 
-div#header, div#footer, div#content_top, div#content_bot, div#breadcrumbs, .hide {
+div#header, div#footer, div#content_top, div#content_bot, div#breadcrumbs, .hide, .print_hide {
 	display: none;
 }
 
