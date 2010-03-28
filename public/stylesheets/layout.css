@@ -214,6 +214,10 @@ div#content div.event_listing {
 		background: transparent url(../images/icons/map_pin_fill_12x12.png) 2px center no-repeat;	
 	}
 	
+	
+	div#content div.event_listing p.event_description {
+		background-position: 0px 7px;
+	}
 	div#content div.event_listing p.event_hours, div#content div.event_listing p.event_volunteers {
 		
 	
