@@ -32,7 +32,7 @@ class Event < ActiveRecord::Base
   
   def full?
     return false if maximum_volunteers.blank?
-  	return users.count >= maximum_volunteers
+  	return total_volunteers >= maximum_volunteers
   end
 
   def under_volunteered?
@@ -42,6 +42,6 @@ class Event < ActiveRecord::Base
 
   def would_be_full?(num)
     return false if maximum_volunteers.blank?
-  	return users.count + num >= maximum_volunteers
+  	return total_volunteers + num >= maximum_volunteers
   end
 end
