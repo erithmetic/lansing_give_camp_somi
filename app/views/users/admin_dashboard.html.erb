@@ -14,22 +14,20 @@
 	<th>Title</th>
 	<th>Date</th>
 	<th>Location</th>
-	<th>Vol</th>
+	<th>Volunteers</th>
 	<th>(Min/Max)</th>
-	<th></th>
 	<th></th>
 	<th></th>
 </tr>
 
 <% @upcoming_events.each do |event| %>
-  <tr <% if event.users.count < event.minimum_volunteers %>class="yellow"<% end %><% if event.users.count >= event.maximum_volunteers %>class="full"<% end %>>
-  	<td class="status_cell"><% if event.users.count >= event.maximum_volunteers %>Full<% end %><% if event.users.count < event.minimum_volunteers %>Under<% end %></td>
-    <td><%=h event.title %></td>
-	<td><%=h event.date.strftime("%m/%d/%Y %I:%M %p") %></td>
-	<td><%=h event.location %></td>
-	<td><%=event.users.count%></td>
-	<td>(<%= link_to "#{event.minimum_volunteers} / #{event.maximum_volunteers}", event_event_volunteers_path(event) %>)</td>
-    <td><%= link_to 'View', event %></td>
+  <tr <% if event.under_volunteered? %>class="yellow"<% elsif event.full? %>class="full"<% end %>>
+    <td class="status_cell"><% if event.full? %>Full<% elsif event.under_volunteered? %>Not enough volunteers<% end %></td>
+    <td><%= link_to event.title, event_path(event) %></td>
+    <td><%=h event.date.to_formatted_s(:short) %></td>
+    <td><%=h event.location %></td>
+    <td><%= link_to event.total_volunteers, event_event_volunteers_path(event) %></td>
+    <td>(<%= link_to "#{event.minimum_volunteers} / #{event.maximum_volunteers}", event_event_volunteers_path(event) %>)</td>
     <td><%= link_to 'Edit', edit_event_path(event) %></td>
     <td><%= link_to 'Delete', event, :confirm => 'Are you sure you want to delete this event?', :method => :delete %></td>
   </tr>
@@ -43,22 +41,20 @@
 	<th>Title</th>
 	<th>Date</th>
 	<th>Location</th>
-	<th>Vol</th>
+	<th>Volunteers</th>
 	<th>(Min/Max)</th>
-	<th></th>
 	<th></th>
 	<th></th>
 </tr>
 
 <% @past_events.each do |event| %>
-  <tr <% if event.users.count < event.minimum_volunteers %>class="yellow"<% end %><% if event.users.count >= event.maximum_volunteers %>class="full"<% end %>>
-  	<td class="status_cell"><% if event.users.count >= event.maximum_volunteers %>Full<% end %><% if event.users.count < event.minimum_volunteers %>Under<% end %></td>
-    <td><%=h event.title %></td>
-	<td><%=h event.date.strftime("%m/%d/%Y %I:%M %p") %></td>
-	<td><%=h event.location %></td>
-	<td><%=event.users.count%></td>
-	<td>(<%= link_to "#{event.minimum_volunteers} / #{event.maximum_volunteers}", event_event_volunteers_path(event) %>)</td>
-    <td><%= link_to 'View', event %></td>
+  <tr <% if event.under_volunteered? %>class="yellow"<% elsif event.full? %>class="full"<% end %>>
+    <td class="status_cell"><% if event.full? %>Full<% elsif event.under_volunteered? %>Under<% end %></td>
+    <td><%= link_to event.title, event_path(event) %></td>
+    <td><%=h event.date.to_formatted_s(:short) %></td>
+    <td><%=h event.location %></td>
+    <td><%= link_to event.total_volunteers, event_event_volunteers_path(event) %></td>
+    <td>(<%= link_to "#{event.minimum_volunteers} / #{event.maximum_volunteers}", event_event_volunteers_path(event) %>)</td>
     <td><%= link_to 'Edit', edit_event_path(event) %></td>
     <td><%= link_to 'Delete', event, :confirm => 'Are you sure you want to delete this event?', :method => :delete %></td>
   </tr>
