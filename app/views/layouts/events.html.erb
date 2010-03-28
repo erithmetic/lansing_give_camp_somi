@@ -25,7 +25,7 @@
 	<p class="hide">Special Olympics Michigan - Volunteer Coordination</p>
 	<% if current_user %>
     <p id="current_user">
-      <%= current_user.email %><br />
+      <span class="icon_lock"><%= current_user.email %></span><br />
       <%= link_to 'My account', user_path(current_user) %> | 
       <a href="/sign-out">Sign out</a>
     </p>

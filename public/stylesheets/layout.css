@@ -74,6 +74,11 @@ div#header {
 		text-transform: uppercase;
 	}
 	
+	div#header p#current_user span.icon_lock {
+		padding-right: 12px;
+		background: transparent url(../images/icons/lock_fill_9x12.png) top right no-repeat;
+	}
+	
 	div#header a:link, div#header a:visited, div#header a:hover {
 		color: #eee;
 		text-decoration: underline;
