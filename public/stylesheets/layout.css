@@ -362,14 +362,30 @@ div#content table.dashboard {
 		font-size: .9em;
 		text-transform: uppercase;
 		padding: 5px 3px;
+		border-bottom: 1px solid #bbb;
+		background: #ccc;
+		color: #222;
 	}
 
 	div#content table.dashboard td {
 		font-size: 0.75em;
-		padding: 6px 3px;
+		padding: 8px 3px;
 		text-align: center;
-		width:100px;
+		border-bottom: 1px solid #bbb;
 	}
+		
+		div#content table.dashboard tr.even td {
+		
+		}
+		
+		div#content table.dashboard tr.odd td {
+			background-color: #e6e6e6;
+		}
+		
+		div#content table.dashboard tr:hover td {
+			background-color: #ffc;
+		}
+	
 		
 		div#content table.dashboard td.align_left {
 			text-align: left;

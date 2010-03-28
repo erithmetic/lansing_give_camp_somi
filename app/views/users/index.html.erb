@@ -10,10 +10,10 @@
   </tr>
 
 <% @users.each do |user| %>
-  <tr>
+  <tr class="<%= cycle("even", "odd") %>">
     <td class="align_left"><%=h user.email %></td>
-    <td><%=h user.name %></td>
-    <td><%=h user.phone %></td>
+    <td class="align_left"><%=h user.name %></td>
+    <td class="align_left"><%=h user.phone %></td>
     <td class="align_left"><%=h user.address1 %> <%=h user.address2 %>
     <br /><%=h user.city %> <%=h user.state %> <%=h user.zip %></td>
     <td class="print_hide"><%= link_to 'Show', user %> | <%= link_to 'Edit', edit_user_path(user) %><% unless user == current_user %> | <%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %>
