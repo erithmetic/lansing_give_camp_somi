@@ -19,6 +19,20 @@ describe User do
         u.save
       end
     end
+
+    describe :send_signup_notification do
+      it 'should send a signup notification on a newly saved record' do
+        u = Factory.build(:user)
+        UserMailer.should_receive(:deliver_registration_notification)
+        u.save
+      end
+      it 'should not send a signup notification on an updated record' do
+        Factory.create(:user)
+        u = User.all.first
+        u.should_not_receive(:deliver_registration_notification)
+        u.save
+      end
+    end
   end
 
   describe :signed_up_for? do

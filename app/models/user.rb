@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   end
 
   before_validation :reset_blank_password
-  after_save :send_signup_notification
+  after_create :send_signup_notification
 
   attr_accessor :password_confirmation
   attr_accessor :spamValidation
@@ -46,6 +46,6 @@ private
   end
 
   def send_signup_notification
-    UserMailer.registration_notification self if new_record?
+    UserMailer.deliver_registration_notification self
   end
 end
