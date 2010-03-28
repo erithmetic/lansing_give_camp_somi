@@ -26,7 +26,7 @@
 
 <div class="event_signup">
   <% if @event.closed? %>
-    Sorry, this event is closed to volunteers.
+    <p>This event has been closed to additional volunteer signups.</p>
   <% else %>
     <% if current_user and current_user.signed_up_for?(@event) %>
       <p class="cancel_link">You are currently signed up as a volunteer for this event. <%= link_to 'Cancel your sign up?', polymorphic_url(@event_volunteer), :method => :delete, :confirm => "Are you sure you want to cancel your registration?" %></p>
