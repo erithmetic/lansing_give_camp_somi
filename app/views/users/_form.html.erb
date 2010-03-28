@@ -43,6 +43,16 @@
     <%= user_form.label :city, "City", :class=>"standard" %><br />
     <%= user_form.text_field :city, :class=>"standard" %>	
   </p>
+
+  <p>
+    <%= user_form.label :state, "State", :class=>"standard" %><br />
+    <%= user_form.text_field :state, :style => 'width: 10em', :class=>"standard" %>	
+  </p>
+
+  <p>
+    <%= user_form.label :zip, "Zip", :class=>"standard" %><br />
+    <%= user_form.text_field :zip, :style => 'width: 5em', :class=>"standard" %>	
+  </p>
   
   <p>
   	<%= user_form.label :spamValidation, "Enter The Current Year", :class=>"standard" %><br />
