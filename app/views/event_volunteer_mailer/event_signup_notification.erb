@@ -1,14 +1,16 @@
 Thank you for signing up for <%= @event.title %>. Here are the details 
 of the event:
+<% if @event_volunteer.alternate %>
+
+Please note: You have been signed up as an ALTERNATE. We will contact you before the event (usually 1-2 days) if you are needed. If you have any questions, please call us at (517) 887-1175.
+<% end %>
 
 Date: <%= @event.date %>
 Duration: <%= @event.number_of_hours %>
 Location: <%= @event.location %>
 Description: <%= @event.description %>
 
-<% if @event_volunteer.alternate %>
-Please note: You have been signed up as an ALTERNATE. We will contact you before the event (usually 1-2 days) if you are needed. If you have any questions, please call us at (517) 887-1175.
-<% else %>
+<% unless @event_volunteer.alternate %>
 Please plan to arrive 15 minutes early.
 <% end %>
 
