@@ -9,13 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100328122354) do
+ActiveRecord::Schema.define(:version => 20100328123300) do
 
   create_table "event_volunteers", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.integer  "event_id",   :null => false
+    t.integer  "user_id",         :null => false
+    t.integer  "event_id",        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "number_in_group"
   end
 
   add_index "event_volunteers", ["event_id"], :name => "index_event_volunteers_on_event_id"
@@ -36,12 +37,6 @@ ActiveRecord::Schema.define(:version => 20100328122354) do
   create_table "fund_raisings", :force => true do |t|
     t.string   "name"
     t.string   "link"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "groups", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -77,7 +72,6 @@ ActiveRecord::Schema.define(:version => 20100328122354) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.integer  "group_id"
     t.string   "group"
   end
 
