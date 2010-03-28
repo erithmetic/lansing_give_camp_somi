@@ -3,8 +3,8 @@ class Event < ActiveRecord::Base
 	has_many :event_volunteers
 	has_many :time_blocks
 
-  named_scope :past, :conditions => 'date <= NOW()'
-  named_scope :upcoming, :conditions => 'date > NOW()'
+  named_scope :past, :conditions => ['date <= ?', Time.now]
+  named_scope :upcoming, :conditions => ['date > ?', Time.now]
 
   validates_presence_of :title
   validates_numericality_of :number_of_hours, :greater_than => 0, :allow_nil => true
