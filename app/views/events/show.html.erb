@@ -1,7 +1,7 @@
 <% @title = @event.title %>
 <% @page_name = "show" %>
 
-<h1><%=h @event.title %></h1>
+<h1><%=h @event.title %><% if current_user and current_user.admin? %><span class="smaller"> <%= link_to 'Edit', edit_event_path(@event) %></span><% end %></h1>
 
 
 
