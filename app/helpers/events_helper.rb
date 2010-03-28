@@ -34,4 +34,8 @@ module EventsHelper
     hours = pluralize(event.number_of_hours, 'hour')
     "#{date_string} - #{later_date_string} ( #{hours} )" 
   end
+
+  def event_title_and_date(event)
+    "#{event.title} &mdash; #{event.date.strftime("%A %m/%d/%Y")} #{event_date(event)}"
+  end
 end

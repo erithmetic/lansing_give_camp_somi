@@ -1,44 +1,23 @@
-<br />
-<br />
-<h1>User Profile</h1>
-<b>(<%=h @user.name %>)</b> <sup><%= link_to 'edit profile', edit_user_path(@user) %></sup><br />
-<br />
-<h2>Your information</h2>
-<p>
-  <b>Email:</b>
-  <%=h @user.email %>
-</p>
+<strong>My Account (<%=h @user.name.blank? ? @user.email : @user.name %>)</strong>
+<sup><%= link_to 'edit profile', edit_user_path(@user) %></sup><br />
 
-<p>
-  <b>Phone:</b>
-  <%=h @user.phone %>
-</p>
-<br />
-<h2>Your address</h2>
-<p>
-  <b>Address1:</b>
-  <%=h @user.address1 %>
-</p>
+<h2>Upcoming events</h2>
+<ul>
+<% @user.events.upcoming.each do |event| %>
+	<li><%= link_to event_title_and_date(event), event_path(event) %></li>
+<% end %>
+</ul>
 
-<p>
-  <b>Address2:</b>
-  <%=h @user.address2 %>
-</p>
+<h2>Past events</h2>
+<ul>
+<% @user.events.past.each do |event| %>
+	<li><%= link_to event_title_and_date(event), event_path(event) %></li>
+<% end %>
+</ul>
 
-<p>
-  <b>City:</b>
-  <%=h @user.city %>
-</p>
-
-<p>
-  <b>State:</b>
-  <%=h @user.state %>
-</p>
-
-<p>
-  <b>Zip:</b>
-  <%=h @user.zip %>
-</p>
-
-
-
+<h2>Other upcoming events</h2>
+<ul>
+<% @other_upcoming.each do |event| %>
+	<li><%= link_to event_title_and_date(event), event_path(event) %></li>
+<% end %>
+</ul>

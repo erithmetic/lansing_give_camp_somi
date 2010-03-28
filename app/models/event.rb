@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
   end
 
   named_scope :past, :conditions => ['date <= ?', Time.now]
-  named_scope :upcoming, :conditions => ['date > ?', Time.now]
+  named_scope :upcoming, :conditions => ['date > ?', Time.now], :order => 'date ASC'
 
   validates_presence_of :title
   validates_numericality_of :number_of_hours, :greater_than => 0, :allow_nil => true
