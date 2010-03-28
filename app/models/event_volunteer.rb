@@ -12,7 +12,6 @@ class EventVolunteer < ActiveRecord::Base
   before_validation :assign_alternates
 
   validate :prevent_signup_for_past_event
-  validates_uniqueness_of :user_id, :context => :event_id
 
   accepts_nested_attributes_for :user
 
