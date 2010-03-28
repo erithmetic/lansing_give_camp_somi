@@ -1,0 +1,22 @@
+<b>Dashboard (<%=h @user.name %>)</b> <sup><%= link_to 'edit profile', edit_user_path(@user) %></sup><br />
+
+<h2>Upcoming events</h2>
+<ul>
+<% @user.events.upcoming.each do |event| %>
+	<li><%=h event.description %></li>
+<% end %>
+</ul>
+
+<h2>Past events</h2>
+<ul>
+<% @user.events.past.each do |event| %>
+	<li><%=h event.description %></li>
+<% end %>
+</ul>
+
+<h2>Other upcoming events</h2>
+<ul>
+<% @other_upcoming.each do |event| %>
+	<li><%=h event.description %></li>
+<% end %>
+</ul>
