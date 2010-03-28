@@ -12,6 +12,11 @@
 			<p class="event_time"><span class="line_heading">Time: </span><%=h event_date(@event) %></p>
 			<p class="event_location"><span class="line_heading">Location: </span><%=h @event.location %></p>
 			<p class="event_volunteers"><span class="line_heading">Volunteers Signed Up: </span><%=h event_volunteers(@event) %></p>
+			
+			<!-- INSERT logic to determine if the "subject to cancellation" flag is on -->
+			<p class="event_cancellation"><span>This event is subject to cancellation</span><br />We will contact you ahead of time if it is canceled.</p>
+			<!-- end logic -->
+			
 	</div>
 	<div class="event_right">
 		<h2>Description</h2>
@@ -55,7 +60,7 @@
           <%= event_volunteer_form.text_field :number_in_group, :class => 'small_number' %>
         </p>
     <% end %> 
-        <% if @event.users.count < @event.maximum_volunteers %>
+        <% if @event.users.count >= @event.maximum_volunteers %>
     	<p>*This event is already has as many volunteers as we think we'll need. If you continue to sign up, we will put you down as an alternate. Alternates do not need to come to the event UNLESS we call you beforehand.</p>
     	<% end %>
         

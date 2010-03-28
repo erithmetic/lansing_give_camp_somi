@@ -197,42 +197,32 @@ div#content div.event_listing {
 
 	div#content div.event_listing p {
 		padding: 2px 0 2px 18px;
-		
-		background: transparent url(../images/icons/arrow_right_alt1_12x12.png) center left no-repeat;	
-	}
-	
-
-	div#content div.event_listing p.event_date {
-		background: transparent url(../images/icons/calendar_alt_fill_12x12.png) center left no-repeat;	
-	}
-	
-	div#content div.event_listing p.event_time {
-		background: transparent url(../images/icons/clock_12x12.png) center left no-repeat;	
-	}
-	
-	div#content div.event_listing p.event_location {
-		background: transparent url(../images/icons/map_pin_fill_12x12.png) 2px center no-repeat;	
-	}
-	
-	
-	div#content div.event_listing p.event_description {
-		background-position: 0px 7px;
-	}
-	div#content div.event_listing p.event_hours, div#content div.event_listing p.event_volunteers {
-		
-	
-	}
-	
-	div#content div.event_listing p {
+		background: transparent url(../images/icons/arrow_right_alt1_12x12.png) 0px 5px no-repeat;
 		color: #222;
 		text-transform: uppercase;	
 	}
+	
+
+		div#content div.event_listing p.event_date { background: transparent url(../images/icons/calendar_alt_fill_12x12.png) 0px 5px no-repeat;	}
+		div#content div.event_listing p.event_time { background: transparent url(../images/icons/clock_12x12.png) 0px 5px no-repeat; }
+		div#content div.event_listing p.event_location { background: transparent url(../images/icons/map_pin_fill_12x12.png) 2px 5px no-repeat;	}
+	
+
 	
 	div#content div.event_listing p span.line_heading {
 		font-weight: bold;
 		text-transform: uppercase;
 		color: #5d504f;
 	}
+	
+	div#content div.event_listing p.event_cancellation {
+		background-position: 0px 5px;
+	}
+	
+		div#content div.event_listing p.event_cancellation span {
+			background-color: #ffc;
+			font-weight: bold;
+		}
 
 
 div.event_left {
