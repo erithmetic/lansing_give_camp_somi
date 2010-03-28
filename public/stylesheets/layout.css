@@ -1,4 +1,4 @@
-.clear{clear:both;}.hide{position:absolute;left:-9999px;}.clear_this{overflow:hidden;width:100%;}
+.clear{clear:both;}.hide{position:absolute;left:-9999px;}.clear_this{overflow:hidden;width:100%;}.align_left{text-align:left;}.align_right{text-align:right;}.align_center{text-align:center;}
 
 /*
 	Positioning
@@ -133,6 +133,11 @@ div#content h1 {
 	
 	padding: 0 0 0.4em 0;
 }
+
+	div#content h1 span.smaller {
+		font-size: 70%;
+		color: #444;
+	}
 
 div#content h2 {
 	color: #659a56;
@@ -341,6 +346,10 @@ td.fundraisingaction {
 }
 
 
+
+
+
+
 div#content table.dashboard {
 	width: 100%;
 }
@@ -348,6 +357,7 @@ div#content table.dashboard {
 	div#content table.dashboard th {
 		font-size: .9em;
 		text-transform: uppercase;
+		padding: 5px 3px;
 	}
 
 	div#content table.dashboard td {
@@ -355,6 +365,11 @@ div#content table.dashboard {
 		padding: 6px 3px;
 		text-align: center;
 	}
+		
+		div#content table.dashboard td.align_left {
+			text-align: left;
+		}
+	
 		div#content table.dashboard td.status_cell {
 			font-weight: bold;
 			text-transform: uppercase; padding-left: 0; padding-right: 0;
