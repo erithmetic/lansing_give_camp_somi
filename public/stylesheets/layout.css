@@ -368,6 +368,7 @@ div#content table.dashboard {
 		font-size: 0.75em;
 		padding: 6px 3px;
 		text-align: center;
+		width:100px;
 	}
 		
 		div#content table.dashboard td.align_left {
