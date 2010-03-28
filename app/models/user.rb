@@ -16,7 +16,8 @@ class User < ActiveRecord::Base
   attr_accessor :password_confirmation
   attr_accessor :spamValidation
   
-  validates_format_of :spamValidation, :with => /\A\d{2,4}\Z/,:message => "You didn't enter the correct year"
+  validates_format_of :spamValidation, :with => /\A\d{2,4}\Z/,:message => "You didn't enter the correct year", 
+                      :if => proc { |user| user.new_record? }
   
 
   acts_as_authentic do |c|

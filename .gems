@@ -2,3 +2,4 @@ authlogic
 resource_controller
 jrails
 cucumber
+hoptoad_notifier

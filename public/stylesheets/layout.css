@@ -214,6 +214,10 @@ div#content div.event_listing {
 		background: transparent url(../images/icons/map_pin_fill_12x12.png) 2px center no-repeat;	
 	}
 	
+	
+	div#content div.event_listing p.event_description {
+		background-position: 0px 7px;
+	}
 	div#content div.event_listing p.event_hours, div#content div.event_listing p.event_volunteers {
 		
 	
@@ -316,12 +320,14 @@ div#footer a:link, div#footer a:visited, div#footer a:hover {
 	letter-spacing: 1px; 
 }
 
+#upcomingevents th,
 #newsitems th,  
 #fundraisings th {
 	padding: 5px 3px;
 	text-align: left;
 }
 
+td.eventfield,
 td.newsname, 
 td.fundraisingname {
 	padding: 5px 3px;
@@ -332,6 +338,7 @@ td.fundraisinglink {
 	padding: 5px 10px 5px 3px;
 }
 
+td.eventaction,
 td.newsaction, 
 td.fundraisingaction {
 	border-left: 1px solid #CCCCCC;
