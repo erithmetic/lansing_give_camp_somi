@@ -29,6 +29,6 @@ class Event < ActiveRecord::Base
   end
   
   def full?
-  	return users.count == maximum_volunteers
+  	return users.count >= maximum_volunteers
   end
 end

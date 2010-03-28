@@ -12,6 +12,10 @@ module EventsHelper
     max_volunteers = event.maximum_volunteers || 0
   	num_needed = max_volunteers - total
   	
+  	if num_needed < 0
+  		num_needed = 0
+  	end
+  	
   	if event.full?
       return total
   	else
