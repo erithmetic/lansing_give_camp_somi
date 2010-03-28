@@ -49,6 +49,12 @@ div#content h1 {
 	letter-spacing: 1px;
 }
 
+	div#content h1 span.datetime {
+		display: block;
+		text-align: center;
+		font-size: 70%;
+	}
+
 div#content h2 {
 	text-align: center;
 	color: #666;
@@ -67,7 +73,7 @@ div#content table.printable td {
 -->
 </style>
 
-<h1><%= parent_object.title %></h1>
+<h1><%= parent_object.title %> <span class="datetime"><%=h parent_object.date.strftime("%m/%d/%Y") %></span></h1>
 
 <h2>List of Volunteers</h2>
 
