@@ -25,6 +25,10 @@ class EventVolunteersController < ResourceController::Base
   destroy.wants.html { redirect_to root_url }
 
 private
+  def collection
+    @collection ||= end_of_association_chain.sort_by_name.get
+  end
+
   def require_admin_or_owner
     forbid unless current_user.admin? or current_user == object.user
   end
