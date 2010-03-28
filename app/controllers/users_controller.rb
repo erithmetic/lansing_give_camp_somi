@@ -24,7 +24,8 @@ class UsersController < ResourceController::Base
 	# GET /users/1/admin_dashboard.xml
 	def admin_dashboard
     @user = User.find(params[:id])
-		@other_upcoming = Event.upcoming
+		@upcoming_events = Event.upcoming
+		@past_events = Event.past
 
 		if not @user.admin?
 			render :action => 'dashboard' 
