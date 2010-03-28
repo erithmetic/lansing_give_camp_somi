@@ -13,7 +13,7 @@ describe EventVolunteersController do
       lambda do
         post 'create', :event_id => @event.id, :event_volunteer => {
           :user_attributes => { :email => 'fonzie@happydays.net',
-            :password => 'heyyyy' }
+            :password => 'heyyyy', :spamValidation => '2010' }
         }
       end.should change(User, :count).by(1)
     end
@@ -21,14 +21,15 @@ describe EventVolunteersController do
       lambda do
         post 'create', :event_id => @event.id, :event_volunteer => {
           :user_attributes => { :email => 'fonzie@happydays.net',
-            :password => 'heyyyy' }
+            :password => 'heyyyy', :spamValidation => '2010' }
         }
       end.should change(EventVolunteer, :count).by(1)
     end
     it 'should create a signup for a new user without a password' do
       lambda do
         post 'create', :event_id => @event.id, :event_volunteer => {
-          :user_attributes => { :email => 'fonzie@happydays.net' }
+          :user_attributes => { :email => 'fonzie@happydays.net',
+                                :spamValidation => '2010' }
         }
       end.should change(User, :count).by(1)
     end
