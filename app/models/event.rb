@@ -31,4 +31,20 @@ class Event < ActiveRecord::Base
     return false if date.nil?
     date <= Time.now
   end
+  
+  def volunteersFormatted
+  	numNeeded = maximum_volunteers - users.count
+  	
+  	if numNeeded > 0
+  		return users.count.to_s + " (%i more needed)" % numNeeded
+  	else
+  		return users.count
+  	end
+  end
+  
+  def full?
+  	return users.count == maximum_volunteers
+  end
+  
+  
 end

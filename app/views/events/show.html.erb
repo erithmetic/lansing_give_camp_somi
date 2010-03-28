@@ -13,7 +13,7 @@
 			<p class="event_date"><span class="line_heading">Date: </span><%=h @event.date.strftime("%m/%d/%Y") %></p>
 			<p class="event_time"><span class="line_heading">Time: </span><%=h @event.timeWithDuration %></p>
 			<p class="event_location"><span class="line_heading">Location: </span><%=h @event.location %></p>
-			<p class="event_volunteers"><span class="line_heading">Volunteers Signed Up: </span><%=h @event.users.count %> (# more requested)</p>
+			<p class="event_volunteers"><span class="line_heading">Volunteers Signed Up: </span><%=h @event.volunteersFormatted %></p>
 	
 	</div>
 	<div class="event_right">
