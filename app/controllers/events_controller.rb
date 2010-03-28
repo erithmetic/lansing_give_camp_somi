@@ -15,5 +15,6 @@ class EventsController < ResourceController::Base
 
 	index.before do
 		@newsitems = NewsItem.find(:all);
+		@fundraisings = FundRaising.find(:all);
 	end
 end

@@ -1,0 +1,21 @@
+<h1>Manage fund raisings</h1>
+
+<table id="fundraisings">
+  <tr>
+    <th>Name</th>
+    <th>Link</th>
+  </tr>
+
+<% @fund_raisings.each do |fund_raising| %>
+  <tr>
+    <td class="fundraisingname"><%=h fund_raising.name %></td>
+    <td class="fundraisinglink"><%= link_to fund_raising.link, fund_raising.link %></td>
+    <td class="fundraisingaction"><%= link_to 'View', fund_raising %></td>
+    <td class="fundraisingaction"><%= link_to 'Edit', edit_fund_raising_path(fund_raising) %></td>
+    <td class="fundraisingaction"><%= link_to 'Delete', fund_raising, :confirm => 'Are you sure you want to delete this fund raising item?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<b><%= link_to 'Add a fund raising item', new_fund_raising_path %></b>

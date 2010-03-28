@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :fund_raisings
+
   map.resources :news_items
 
   map.resources :newsitems
