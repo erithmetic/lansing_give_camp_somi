@@ -12,6 +12,9 @@ class Event < ActiveRecord::Base
                             :greater_than_or_equal_to => 0, :allow_nil => true
 
   def timeWithDuration
+    return nil if date.nil?
+    return date if number_of_hours.nil?
+
   	laterDate = date + number_of_hours.hours
   	
   	if number_of_hours <= 1
@@ -22,5 +25,10 @@ class Event < ActiveRecord::Base
   	
 	return date.strftime("%I:%M %p")+" - "+laterDate.strftime("%I:%M %p")+" (%i "%number_of_hours+hourOrHours+" )" 
 
+  end
+
+  def past?
+    return false if date.nil?
+    date <= Time.now
   end
 end

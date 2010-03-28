@@ -3,7 +3,7 @@ Given /a user with email "(.+)" and password "(.+)" exists/ do |email, password|
   When("I go to the signup page")
   When('I fill in "user_email" with "' + email  + '"')
   When('I fill in "user_password" with "' + password + '"')
-  When('I press "Sign me up"')
+  When('I press "Sign up"')
 end
 
 Given /I am logged in as an existing user with email "(.+)" and password "(.+)"/ do |email, password|

@@ -2,10 +2,21 @@ require 'spec_helper'
 require 'time'
 
 describe Event do
-  describe :time do
+  describe :timeWithDuration do
     it 'should return the time' do
+      event = Event.new(:date => Time.parse('2010-03-27 13:45:01'), :number_of_hours => 4)
+      event.timeWithDuration.should == '05:45 PM - 09:45 PM (4 hours )'
+    end
+  end
+
+  describe :past? do
+    it 'should return true for a past event' do
       event = Event.new(:date => Time.parse('2010-03-27 13:45:01'))
-      event.time.should == '17:45:01'
+      event.should be_past
+    end
+    it 'should return false for a current event' do
+      event = Event.new(:date => Time.now + 3.hours)
+      event.should_not be_past
     end
   end
 end
