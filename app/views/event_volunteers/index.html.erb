@@ -91,15 +91,17 @@ div#content table.printable td {
 		<th>Phone</th>
 		<th>Address</th>
 		<th>City</th>
+    <th>Number in group</th>
 	</tr>
 </thead>
-<% collection.map(&:user).each do | user | %>
+<% collection.each do | volunteer | %>
 <tr>
-	<td><%=user.name%></td>
-	<td><%=user.email%></td>
-	<td><%=user.phone%></td>
-	<td><%=user.address1%> <%=user.address2%></td>
-	<td><%=user.city%></td>
+	<td><%= volunteer.user.name%></td>
+	<td><%= volunteer.user.email%></td>
+	<td><%= volunteer.user.phone%></td>
+	<td><%= volunteer.user.address1%> <%=volunteer.user.address2%></td>
+	<td><%= volunteer.user.city%></td>
+	<td><%= volunteer.number_in_group%></td>
 </tr>
 <% end %>
 </table>
