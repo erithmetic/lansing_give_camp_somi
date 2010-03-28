@@ -4,45 +4,46 @@
 
 	<div class="profile_information">
       <p>
-        <b><%= f.label :name %></b><br />
-        <%= f.text_field :name %>
+      		<%= f.label :name, "Name", :class=>"standard" %><br />
+        	<%= f.text_field :name, :class=>"standard" %>
       </p>
     	<p>
-        <b><%= f.label :password %></b><br />
-				<sup>(Enter new password to change)</sup><br />
-        <%= f.text_field :password %>
+        	<%= f.label :password, "Password (Leave blank unless you want to change)" %><br />
+        	<%= f.text_field :password, :class=>"standard" %>
     	</p>
       <p>
-        <b><%= f.label :email %></b><br />
-        <%= f.text_field :email %>
+        <%= f.label :email, "E-mail address", :class=>"standard" %><br />
+        <%= f.text_field :email, :class=>"standard" %>
       </p>
       <p>
-        <b><%= f.label :phone %></b><br />
-        <%= f.text_field :phone %>
+        <%= f.label :phone, "Phone", :class=>"standard" %><br />
+        <%= f.text_field :phone, :class=>"standard" %>
       </p>
 	</div>
+	
 	<div class="profile_address">
       <p>
-        <b><%= f.label :address1 %></b><br />
-        <%= f.text_field :address1 %>
+        <%= f.label :address1, "Mailing Address (Line 1)", :class=>"standard" %><br />
+        <%= f.text_field :address1, :class=>"standard" %>
       </p>
       <p>
-        <b><%= f.label :address2 %></b><br />
-        <%= f.text_field :address2 %>
+        <%= f.label :address2, "Mailing Address (Line 2)", :class=>"standard" %><br />
+        <%= f.text_field :address2, :class=>"standard" %>
       </p>
       <p>
-        <b><%= f.label :city %></b><br />
-        <%= f.text_field :city %>
+        <%= f.label :city, "City", :class=>"standard" %><br />
+        <%= f.text_field :city, :class=>"standard" %>
       </p>
       <p>
-        <b><%= f.label :state %></b><br />
-        <%= f.text_field :state %>
+        <%= f.label :state, "State", :class=>"standard" %><br />
+        <%= f.text_field :state, :class=>"standard", :size=>"4" %>
       </p>
       <p>
-        <b><%= f.label :zip %></b><br />
-        <%= f.text_field :zip %>
+        <%= f.label :zip, "Zip Code", :class=>"standard" %><br />
+        <%= f.text_field :zip, :class=>"standard" %>
       </p>
   </div>
+  
   <p>
     <%= f.submit 'Update' %>
   </p>
