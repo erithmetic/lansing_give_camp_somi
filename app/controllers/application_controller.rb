@@ -30,7 +30,7 @@ private
   end
 
   def forbid
-    render :file => "#{Rails.root}/public/403.html",
+    render :template => 'errors/403',
            :status => 403
     false
   end
