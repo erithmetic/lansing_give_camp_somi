@@ -61,6 +61,24 @@ div#header {
 		padding-left: 10px;
 	}
 
+	div#header p#current_user {
+		width: 260px;
+		padding: 21px 23px 0 0;
+		float: right;
+		
+		line-height: 1.4em;
+		font-size: 0.7em;
+		font-weight: bold;
+		text-align: right;
+		color: #fff;
+		text-transform: uppercase;
+	}
+	
+	div#header a:link, div#header a:visited, div#header a:hover {
+		color: #eee;
+		text-decoration: underline;
+	}
+
 
 div#breadcrumbs p {
 	color: #eee;
@@ -147,6 +165,7 @@ div#content p, div#content ul, div#content ol {
 div#content li {
 	padding: 3px 0;
 }
+
 
 
 

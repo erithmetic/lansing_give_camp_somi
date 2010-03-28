@@ -14,6 +14,7 @@ class EventVolunteersController < ResourceController::Base
     end
     success.flash { "You have signed up for #{parent_object.title}" }
     success.wants.html { redirect_to root_url }
+    failure.flash { "Sorry, there was a problem signing you up" }
     failure.wants.html { redirect_to smart_url(parent_object) }
   end
   destroy.wants.html { redirect_to root_url }

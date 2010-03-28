@@ -21,6 +21,9 @@
 
 	<a href="/events"><img src="/images/logo.png" alt="logo" /></a>
 	<p class="hide">Special Olympics Michigan - Volunteer Coordination</p>
+	<% if current_user %>
+	<p id="current_user"><%= current_user.email %><br /><a href="/sign-out">Sign out</a></p>
+	<% end %>
 
 </div></div>
 
@@ -43,6 +46,7 @@
 			<p><%= flash[:notice] %></p>
 		</div>
 	<% end %>
+
 	
 	<%= yield %>
 	

@@ -31,7 +31,9 @@
 		
 		<p>Need to verify your volunteer hours? We've made it easy!</p>
 		
+		<% unless current_user %>
 		<p><a href="/sign-in"><img src="/images/button-login.png" alt="Log in" /></a></p>
+		<% end %>
 		
 		<h2>Fundraising opportunities</h2>
 		
