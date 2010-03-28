@@ -44,7 +44,7 @@ describe EventVolunteersController do
       lambda do
         post 'create', :event_id => @event.id
       end.should_not change(EventVolunteer, :count)
-      response.should be_redirect
+      response.should be_success
     end
     it 'should prevent someone from signing up multiple times' do
       log_in(Factory.create(:user))
@@ -57,9 +57,18 @@ describe EventVolunteersController do
       lambda do
         post 'create', :event_id => @event.id
       end.should_not change(EventVolunteer, :count)
-      response.should be_redirect
+      response.should be_success
     end
     it 'should make any volunteers above the limit alternates'
+    it 'should sign up a group of volunteers' do
+      user = log_in
+
+      post 'create', :event_id => @event.id, :event_volunteer => { :number_in_group => '14' }
+      response.should be_redirect
+
+      @event.reload
+      @event.event_volunteers.first.number_in_group.should == 14
+    end
   end
 
   describe 'DELETE /event_volunteers/1' do
