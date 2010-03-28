@@ -16,6 +16,7 @@ describe EventVolunteersController do
             :password => 'heyyyy', :spamValidation => '2010' }
         }
       end.should change(User, :count).by(1)
+      response.should be_redirect
     end
     it 'should create a signup for a new user' do
       lambda do
@@ -24,6 +25,7 @@ describe EventVolunteersController do
             :password => 'heyyyy', :spamValidation => '2010' }
         }
       end.should change(EventVolunteer, :count).by(1)
+      response.should be_redirect
     end
     it 'should create a signup for a new user without a password' do
       lambda do
@@ -32,6 +34,7 @@ describe EventVolunteersController do
                                 :spamValidation => '2010' }
         }
       end.should change(User, :count).by(1)
+      response.should be_redirect
     end
     it 'should prevent someone from signing up for a past event' do
       @event.date = Time.now - 2.hours
@@ -41,6 +44,7 @@ describe EventVolunteersController do
       lambda do
         post 'create', :event_id => @event.id
       end.should_not change(EventVolunteer, :count)
+      response.should be_redirect
     end
     it 'should prevent someone from signing up multiple times' do
       log_in(Factory.create(:user))
@@ -53,6 +57,7 @@ describe EventVolunteersController do
       lambda do
         post 'create', :event_id => @event.id
       end.should_not change(EventVolunteer, :count)
+      response.should be_redirect
     end
     it 'should make any volunteers above the limit alternates'
   end
