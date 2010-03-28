@@ -341,10 +341,32 @@ td.fundraisingaction {
 }
 
 
+div#content table.dashboard {
+	width: 100%;
+}
 
+	div#content table.dashboard th {
+		font-size: .9em;
+		text-transform: uppercase;
+	}
 
+	div#content table.dashboard td {
+		font-size: 0.75em;
+		padding: 6px 3px;
+		text-align: center;
+	}
+		div#content table.dashboard td.status_cell {
+			font-weight: bold;
+			text-transform: uppercase; padding-left: 0; padding-right: 0;
+		}
 
+	div#content table.dashboard tr.yellow td {
+		background-color: #ffc;
+	}
 
+	div#content table.dashboard tr.full td {
+		background-color: #ddd;
+	}
 
 
 
