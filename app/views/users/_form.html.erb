@@ -8,8 +8,8 @@
     <%= user_form.text_field :email, :class=>"standard" %>
   </p>
   <p>
-  <%= user_form.label :password, 'Password (optional)', :class => 'standard', :onblur => "javascript:ValidateBox(this)" %><br />
-    <%= user_form.password_field :password %>
+  <%= user_form.label :password, 'Password (optional)', :class =>"standard" %><br />
+    <%= user_form.password_field :password, :class =>"standard"%>
   </p>
   <p>
     <%= user_form.label :name, "Your Name", :class=>"standard" %><br />
@@ -38,6 +38,11 @@
   <p>
     <%= user_form.label :city, "City", :class=>"standard" %><br />
     <%= user_form.text_field :city, :class=>"standard" %>	
+  </p>
+  
+  <p>
+  	<%= user_form.label :spamValidation, "Enter The Current Year", :class=>"standard" %><br />
+  	<%= user_form.text_field :spamValidation, :class=>"standard" %>
   </p>
   
 </div>
