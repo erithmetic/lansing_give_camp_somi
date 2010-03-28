@@ -42,10 +42,10 @@ class Event < ActiveRecord::Base
     max_volunteers = maximum_volunteers || 0
   	num_needed = max_volunteers - users.count
   	
-  	if num_needed > 0
-  		return "#{users.count} (#{num_needed} more needed)"
+  	if full?
+      return users.count
   	else
-  		return users.count
+      return "#{users.count} (#{num_needed} more needed)"
   	end
   end
   
