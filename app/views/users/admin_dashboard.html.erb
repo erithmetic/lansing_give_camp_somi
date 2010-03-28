@@ -1,5 +1,8 @@
 <h1>Administration dashboard</h1>
 
+<strong>My Account (<%=h @user.name.blank? ? @user.email : @user.name %>)</strong>
+<sup><%= link_to 'edit profile', edit_user_path(@user) %></sup><br />
+
 <h2>Actions</h2>
 <ul>
 	<li><%= link_to "Add event", :controller=> 'events', :action => 'new' %></li>
