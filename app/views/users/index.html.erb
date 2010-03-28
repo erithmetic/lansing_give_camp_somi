@@ -1,6 +1,6 @@
 <h1>Listing users</h1>
 
-<table>
+<table class="dashboard">
   <tr>
     <th>Email</th>
     <th>Name</th>
@@ -14,7 +14,7 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%=h user.email %></td>
+    <td class="align_left"><%=h user.email %></td>
     <td><%=h user.name %></td>
     <td><%=h user.phone %></td>
     <td><%=h user.address1 %></td>
