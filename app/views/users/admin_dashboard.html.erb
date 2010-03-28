@@ -1,0 +1,29 @@
+<h1>Administration dashboard</h1>
+
+<h2>Actions</h2>
+<ul>
+	<li><%= link_to "Manage events", :controller=> 'events', :action => 'index' %></li>
+	<li><%= link_to "Manage news items", :controller=> 'news_items', :action => 'index' %></li>
+	<li><%= link_to "Manage fund raising items", :controller=> 'fund_raisings', :action => 'index' %></li>
+</ul>
+
+<h2>Upcoming events</h2>
+<table id="upcomingevents">
+  <tr>
+    <th>Title</th>
+    <th>Date</th>
+		<th>Location</th>
+  </tr>
+
+<% @other_upcoming.each do |event| %>
+  <tr>
+    <td class="eventfield"><%=h event.title %></td>
+		<td class="eventfield"><%=h event.date.strftime("%m/%d/%Y %I:%M %p") %></td>
+		<td class="eventfield"><%=h event.location %></td>
+    <td class="eventaction"><%= link_to 'View', event %></td>
+    <td class="eventaction"><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td class="eventaction"><%= link_to 'Delete', event, :confirm => 'Are you sure you want to delete this event?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<ul>
