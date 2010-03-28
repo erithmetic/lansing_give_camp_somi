@@ -8,7 +8,7 @@
 <div class="event_listing">
   <%= event_title(event) %>
   <p class="event_date"><span class="line_heading">Date: </span><%=h event.date.strftime("%A %m/%d/%Y") unless event.date.nil? %></p>
-  <p class="event_time"><span class="line_heading">Time: </span><%=h event_date(@event) %></p>
+  <p class="event_time"><span class="line_heading">Time: </span><%=h event_date(event) %></p>
   <p class="event_location"><span class="line_heading">Location: </span><%=h event.location %></p>
 	<p class="event_volunteers"><span class="line_heading">Volunteers: </span><%=h event_volunteers(event) %></p>
 </div>
