@@ -22,7 +22,6 @@
 	</div>
 </div>
 
-
   <div class="event_signup">
     <% if current_user and current_user.signed_up_for?(@event) %>
       <p class="cancel_link">You are currently signed up as a volunteer for this event. <%= link_to 'Cancel your sign up?', polymorphic_url(@event_volunteer), :method => :delete, :confirm => "Are you sure you want to cancel your registration?" %></p>
@@ -34,11 +33,11 @@
       
       
       <% form_for([@event, @event_volunteer]) do |event_volunteer_form| %>
-        <%= event_volunteer_form.error_messages %>
+        <%= error_messages_for(:event_volunteer) %>
 
         <% unless current_user %>
           <% event_volunteer_form.fields_for :user do |user_form| %>
-            <%= render :partial => 'users/form', :locals => { :user_form => user_form, :user => @event_volunteer.user } %>
+            <%= render :partial => 'users/form', :locals => { :user_form => user_form, :user => @event_volunteer.user, :child => true } %>
           <% end %>
         <% end %>
 
