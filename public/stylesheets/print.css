@@ -1,0 +1,18 @@
+body, div#content_area {
+	background: #fff;
+}
+
+
+div#header, div#footer, div#content_top, div#content_bot, div#breadcrumbs, .hide {
+	display: none;
+}
+
+
+div.wrapper {
+	width: 100%;
+	margin: auto;
+}
+
+
+
+
