@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100328154836) do
+ActiveRecord::Schema.define(:version => 20100328160025) do
 
   create_table "event_volunteers", :force => true do |t|
     t.integer  "user_id",         :null => false
@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20100328154836) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "number_in_group"
+    t.boolean  "alternate"
   end
 
   add_index "event_volunteers", ["event_id"], :name => "index_event_volunteers_on_event_id"

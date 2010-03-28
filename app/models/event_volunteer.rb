@@ -9,18 +9,26 @@ class EventVolunteer < ActiveRecord::Base
     end
   end
 
+  before_validation :assign_alternates
+
   validate :prevent_signup_for_past_event
   validates_uniqueness_of :user_id, :context => :event_id
 
   accepts_nested_attributes_for :user
 
   default_value_for :number_in_group, 1
+  default_value_for :alternate, false
 
   def sortable_name
     name = user.group || user.name || user.email
   end
 
 private
+  def assign_alternates
+    if number_in_group.to_i == 1 && event.would_be_full?(1)
+      self.alternate = true
+    end
+  end
 
   def prevent_signup_for_past_event
     if event.past?

@@ -59,7 +59,25 @@ describe EventVolunteersController do
       end.should_not change(EventVolunteer, :count)
       response.should be_success
     end
-    it 'should make any volunteers above the limit alternates'
+    it 'should make any single volunteers above the limit alternates' do
+      user = log_in
+      @event.maximum_volunteers = 1
+      @event.event_volunteers.create(:user => Factory.create(:user))
+      @event.save
+
+      post 'create', :event_id => @event.id, :event_volunteer => { :number_in_group => '1' }
+      @event.reload
+      @event.event_volunteers.find_by_user_id(user.id).should be_alternate
+    end
+    it 'should not make any group volunteers above the limit alternates' do
+      log_in
+      @event.maximum_volunteers = 10
+      @event.save
+
+      post 'create', :event_id => @event.id, :event_volunteer => { :number_in_group => '11' }
+      @event.reload
+      @event.event_volunteers.first.should_not be_alternate
+    end
     it 'should sign up a group of volunteers' do
       user = log_in
 

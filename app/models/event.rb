@@ -39,4 +39,9 @@ class Event < ActiveRecord::Base
     min = minimum_volunteers || 0
     total_volunteers < min
   end
+
+  def would_be_full?(num)
+    return false if maximum_volunteers.blank?
+  	return users.count + num >= maximum_volunteers
+  end
 end
