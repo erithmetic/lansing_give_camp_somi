@@ -57,11 +57,12 @@
     <%= user_form.text_field :zip, :style => 'width: 5em', :class=>"standard" %>	
   </p>
   
-  <p>
-  	<%= user_form.label :spamValidation, "Enter The Current Year (required)", :class=>"standard" %><br />
-  	<%= user_form.text_field :spamValidation, :class=>"standard" %>
-  </p>
- 
+  <% if user.new_record? %>
+    <p>
+      <%= user_form.label :spamValidation, "Enter The Current Year (required)", :class=>"standard" %><br />
+      <%= user_form.text_field :spamValidation, :class=>"standard" %>
+    </p>
+  <% end %>
   
 </div>
 <div class="clear"></div>

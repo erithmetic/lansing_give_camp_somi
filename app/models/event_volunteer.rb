@@ -12,6 +12,7 @@ class EventVolunteer < ActiveRecord::Base
   before_validation :assign_alternates
 
   validate :prevent_signup_for_past_event
+  validates_numericality_of :number_in_group, :greater_than => 0
 
   accepts_nested_attributes_for :user
 

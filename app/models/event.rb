@@ -15,6 +15,7 @@ class Event < ActiveRecord::Base
   validates_numericality_of :number_of_hours, :greater_than => 0, :allow_nil => true
   validates_numericality_of :minimum_volunteers, :only_integer => true,
                             :greater_than_or_equal_to => 0, :allow_nil => true
+  validate :future_date, :if => proc { |e| e.new_record? }
   
   default_value_for :maximum_volunteers, 0
   default_value_for :minimum_volunteers, 0
@@ -37,11 +38,18 @@ class Event < ActiveRecord::Base
 
   def under_volunteered?
     min = minimum_volunteers || 0
-    total_volunteers < min
+    total_volunteers < min.to_i
   end
 
   def would_be_full?(num)
     return false if maximum_volunteers.blank?
   	return total_volunteers + num >= maximum_volunteers
+  end
+
+private
+  def future_date
+    if date <= Time.now
+      errors.add(:date, :message => 'You cannot create a past event')
+    end
   end
 end

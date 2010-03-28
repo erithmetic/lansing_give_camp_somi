@@ -19,6 +19,8 @@ class EventsController < ResourceController::Base
     @event_volunteer ||= EventVolunteer.new(:user => event_user)
   end
 
+  destroy.wants.html { redirect_to user_path(current_user) }
+
 private
   def collection
     Event.upcoming

@@ -1,48 +1,7 @@
 <h2>Edit your profile</h2>
 
 <% form_for(@user) do |f| %>
-
-	<div class="profile_information">
-      <p>
-      		<%= f.label :name, "Name", :class=>"standard" %><br />
-        	<%= f.text_field :name, :class=>"standard" %>
-      </p>
-    	<p>
-        	<%= f.label :password, "Password (Leave blank unless you want to change)" %><br />
-        	<%= f.text_field :password, :class=>"standard" %>
-    	</p>
-      <p>
-        <%= f.label :email, "E-mail address", :class=>"standard" %><br />
-        <%= f.text_field :email, :class=>"standard" %>
-      </p>
-      <p>
-        <%= f.label :phone, "Phone", :class=>"standard" %><br />
-        <%= f.text_field :phone, :class=>"standard" %>
-      </p>
-	</div>
-	
-	<div class="profile_address">
-      <p>
-        <%= f.label :address1, "Mailing Address (Line 1)", :class=>"standard" %><br />
-        <%= f.text_field :address1, :class=>"standard" %>
-      </p>
-      <p>
-        <%= f.label :address2, "Mailing Address (Line 2)", :class=>"standard" %><br />
-        <%= f.text_field :address2, :class=>"standard" %>
-      </p>
-      <p>
-        <%= f.label :city, "City", :class=>"standard" %><br />
-        <%= f.text_field :city, :class=>"standard" %>
-      </p>
-      <p>
-        <%= f.label :state, "State", :class=>"standard" %><br />
-        <%= f.text_field :state, :class=>"standard", :size=>"4" %>
-      </p>
-      <p>
-        <%= f.label :zip, "Zip Code", :class=>"standard" %><br />
-        <%= f.text_field :zip, :class=>"standard" %>
-      </p>
-  </div>
+  <%= render :partial => 'form', :locals => { :user => @user, :user_form => f } %>
   
   <p>
     <%= f.submit 'Update' %>
