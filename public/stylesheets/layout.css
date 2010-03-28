@@ -277,6 +277,10 @@ div#content textarea.standard {
 		color: #000;
 	}
 
+div#content input.small_number {
+  width: 3em;
+}
+
 
 div#notice {
 	background: #ffc;

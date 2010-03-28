@@ -43,7 +43,8 @@
 
         <h3>Are you signing up as group? (Skip this if you're not)</h3>
         <p>
-          Insert form fields for group name and number of volunteers.		
+          <%= event_volunteer_form.label :number_in_group, 'Number of Volunteers in your Group', :class=>"standard" %><br />
+          <%= event_volunteer_form.text_field :number_in_group, :class => 'small_number' %>
         </p>
         <p>
           <%= event_volunteer_form.submit 'Sign Up' %> or <%= link_to 'go back to see all opportunities', events_path %>	
