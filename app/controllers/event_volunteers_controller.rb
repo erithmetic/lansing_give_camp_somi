@@ -1,5 +1,5 @@
 class EventVolunteersController < ResourceController::Base
-  actions :create, :destroy
+  actions :index, :create, :destroy
   belongs_to :event
 
   before_filter :require_user, :only => :destroy
