@@ -28,7 +28,7 @@
 	<td><%=h event.date.strftime("%m/%d/%Y %I:%M %p") %></td>
 	<td><%=h event.location %></td>
 	<td><%=event.users.count%></td>
-	<td>(<%= link_to "#{event.minimum_volunteers} / #{event.maximum_volunteers}", :controller => 'event_volunteer', :action => 'index', :id => event.id %>)</td>
+	<td>(<%= link_to "#{event.minimum_volunteers} / #{event.maximum_volunteers}", event_event_volunteers_path(event) %>)</td>
     <td><%= link_to 'View', event %></td>
     <td><%= link_to 'Edit', edit_event_path(event) %></td>
     <td><%= link_to 'Delete', event, :confirm => 'Are you sure you want to delete this event?', :method => :delete %></td>
@@ -57,7 +57,7 @@
 	<td><%=h event.date.strftime("%m/%d/%Y %I:%M %p") %></td>
 	<td><%=h event.location %></td>
 	<td><%=event.users.count%></td>
-	<td>(<%=event.minimum_volunteers%>/<%=event.maximum_volunteers%>)</td>
+	<td>(<%= link_to "#{event.minimum_volunteers} / #{event.maximum_volunteers}", event_event_volunteers_path(event) %>)</td>
     <td><%= link_to 'View', event %></td>
     <td><%= link_to 'Edit', edit_event_path(event) %></td>
     <td><%= link_to 'Delete', event, :confirm => 'Are you sure you want to delete this event?', :method => :delete %></td>

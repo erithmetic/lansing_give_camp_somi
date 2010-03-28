@@ -11,7 +11,7 @@ class UsersController < ResourceController::Base
 		@other_upcoming = Event.upcoming - @user.events.upcoming
 
 		if @user.admin?
-			render :action => 'admin_dashboard' 
+			redirect_to :action => 'admin_dashboard' 
 		else
     	respond_to do |format|
       	format.html # dashboard.html.erb
@@ -28,7 +28,7 @@ class UsersController < ResourceController::Base
 		@past_events = Event.past
 
 		if not @user.admin?
-			render :action => 'dashboard' 
+			redirect_to :action => 'dashboard' 
 		else
     	respond_to do |format|
       	format.html # admin_dashboard.html.erb
