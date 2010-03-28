@@ -1,0 +1,20 @@
+<h1>Editing your fund raising item</h1>
+
+<% form_for(@fund_raising) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <b><%= f.label :name %></b><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <b><%= f.label :link %></b> <sup>(e.g. http://www.example.com)</sup><br />
+    <%= f.text_field :link %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<br />
+<b><%= link_to 'Go back to manage your fund raising items', fund_raisings_path %></b>

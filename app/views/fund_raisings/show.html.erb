@@ -1,0 +1,14 @@
+<h1>Fund raising item</h1>
+(<%= link_to 'edit item', edit_fund_raising_path(@fund_raising) %>)
+<p>
+  <h3>Name:</h3>
+  <%=h @fund_raising.name %>
+</p>
+
+<p>
+  <h3>Link:</h3>
+  <%= link_to @fund_raising.link, @fund_raising.link %>
+</p>
+<br />
+<br />
+<b><%= link_to 'Go back to manage your fund raising items', fund_raisings_path %></b>

@@ -311,20 +311,24 @@ div#footer a:link, div#footer a:visited, div#footer a:hover {
   background-color: #FFB6C1;
 }
 
-#newsitems th {
+#newsitems th,  
+#fundraisings th {
 	padding: 5px 3px;
 	text-align: left;
 }
 
-td.newsname {
+td.newsname, 
+td.fundraisingname {
 	padding: 5px 3px;
 }
 
-td.newslink {
+td.newslink, 
+td.fundraisinglink {
 	padding: 5px 10px 5px 3px;
 }
 
-td.newsaction {
+td.newsaction, 
+td.fundraisingaction {
 	border-left: 1px solid #CCCCCC;
 	padding: 5px 5px;
 }
