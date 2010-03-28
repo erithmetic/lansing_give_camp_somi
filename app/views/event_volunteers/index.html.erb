@@ -82,27 +82,32 @@ div#content table.printable td {
 <p>Sorry! No one has signed up yet.</p>
 
 <% else %>
-
-<table class="printable">
-<thead>
-	<tr>
-		<th>Name</th>
-		<th>E-mail</th>
-		<th>Phone</th>
-		<th>Address</th>
-		<th>City</th>
-    <th>Number in group</th>
-	</tr>
-</thead>
-<% collection.each do | volunteer | %>
-<tr>
-	<td><%= volunteer.user.name%></td>
-	<td><%= volunteer.user.email%></td>
-	<td><%= volunteer.user.phone%></td>
-	<td><%= volunteer.user.address1%> <%=volunteer.user.address2%></td>
-	<td><%= volunteer.user.city%></td>
-	<td><%= volunteer.number_in_group%></td>
-</tr>
-<% end %>
-</table>
+  <% form_tag check_in_event_volunteers_path do %>
+    <%= hidden_field_tag :event_id, parent_object.id %>
+    <table class="printable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>E-mail</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>Number in group</th>
+          <th>Attended?</th>
+        </tr>
+      </thead>
+      <% collection.each do | volunteer | %>
+        <tr>
+          <td><%= volunteer.user.name%></td>
+          <td><%= volunteer.user.email%></td>
+          <td><%= volunteer.user.phone%></td>
+          <td><%= volunteer.user.address1%> <%=volunteer.user.address2%></td>
+          <td><%= volunteer.user.city%></td>
+          <td><%= volunteer.number_in_group%></td>
+          <td><%= check_box_tag 'event_volunteer_ids[]', volunteer.id, volunteer.confirmed? %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= submit_tag 'Confirm attendance' %>
+  <% end %>
 <% end %>

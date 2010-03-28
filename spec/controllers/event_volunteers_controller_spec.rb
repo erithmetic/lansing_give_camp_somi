@@ -47,6 +47,7 @@ describe EventVolunteersController do
       response.should be_success
     end
     it 'should prevent someone from signing up multiple times' do
+      pending "we find a way that doesn't preclude one from signing up for multiple other events"
       log_in(Factory.create(:user))
 
       lambda do
@@ -107,5 +108,45 @@ describe EventVolunteersController do
     end
     it 'should not allow someone to unregister another'
     it 'should allow admins to unregister another'
+  end
+
+  describe 'PUT /event_volunteers/check_in' do
+    before(:each) do
+      @event = Factory.create(:event)
+      @ev1 = @event.event_volunteers.create(:user => Factory.create(:user))
+      @ev2 = @event.event_volunteers.create(:user => Factory.create(:user))
+      @ev3 = @event.event_volunteers.create(:user => Factory.create(:user))
+      log_in(Factory.create(:user, :admin => true))
+      @all = [@ev1, @ev2, @ev3]
+    end
+    it 'should set confirmed signups' do
+      ids = [@ev1, @ev3].map(&:id).map(&:to_s)
+      put 'check_in', :event_id => @event.id, :event_volunteer_ids => ids
+      @all.map(&:reload)
+      @ev1.should be_confirmed
+      @ev2.should_not be_confirmed
+      @ev3.should be_confirmed
+    end
+    it 'should unset unconfirmed signups' do
+      @all.each do |ev|
+        ev.confirmed = true
+        ev.save
+      end
+      ids = [@ev2].map(&:id)
+      put 'check_in', :event_id => @event.id, :event_volunteer_ids => ids
+      @all.map(&:reload)
+      @ev1.should_not be_confirmed
+      @ev2.should be_confirmed
+      @ev3.should_not be_confirmed
+    end
+    it 'should only send emails to new attenders' do
+      [@ev1, @ev3].each do |ev|
+        ev.confirmed = true
+        ev.save
+      end
+      ids = @all.map(&:id)
+      EventVolunteerMailer.should_receive(:deliver_attendance_confirmation).once
+      put 'check_in', :event_id => @event.id, :event_volunteer_ids => ids
+    end
   end
 end

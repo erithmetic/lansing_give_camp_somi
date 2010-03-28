@@ -1,0 +1,8 @@
+Dear <%= @user.name.blank? ? 'Volunteer' : @user.name %>,
+
+Thank you for voluntering for <%= @event.title %> <% if @event.date %>on <%= @event.date.to_formatted_s(:short) %><% end %>.
+We are very greatful for your help and hope you will continue to volunteer with us in the future.
+
+Sincerely,
+
+The Special Olympics Area 8 Staff

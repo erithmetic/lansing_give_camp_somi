@@ -23,6 +23,9 @@
     <%= user_form.label :phone, "Phone Number", :class=>"standard" %><br />
     <%= user_form.text_field :phone, :class=>"standard" %>
   </p>
+  
+  <%= admin_checkbox(current_user, user_form) %>
+
 </div>
 
 <div class="event_right">
@@ -58,6 +61,7 @@
   	<%= user_form.label :spamValidation, "Enter The Current Year (required)", :class=>"standard" %><br />
   	<%= user_form.text_field :spamValidation, :class=>"standard" %>
   </p>
+ 
   
 </div>
 <div class="clear"></div>
