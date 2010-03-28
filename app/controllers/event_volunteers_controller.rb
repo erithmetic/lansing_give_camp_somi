@@ -11,6 +11,7 @@ class EventVolunteersController < ResourceController::Base
     end
     after do
       UserSession.create(object.user) if current_user.nil?
+      EventVolunteerMailer.deliver_event_signup_notification(object)
     end
     success.flash { "You have signed up for #{parent_object.title}" }
     success.wants.html { redirect_to root_url }
