@@ -17,7 +17,7 @@ function ValidateBox( element )
 	}
 	else
 	{
-		element.removeAttribute("class");
+		element.setAttribute("class", "standard");
 	}
 
 }
