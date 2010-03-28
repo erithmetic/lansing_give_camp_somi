@@ -22,6 +22,10 @@ class EventVolunteer < ActiveRecord::Base
     name = user.group || user.name || user.email
   end
 
+  def confirmed?
+    confirmed
+  end
+
 private
   def assign_alternates
     if number_in_group.to_i == 1 && event.would_be_full?(1)
