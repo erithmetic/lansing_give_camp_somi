@@ -10,11 +10,12 @@
 <%= event_title(event) %>
 <p class="event_date"><span class="line_heading">Date: </span><%=h event.date.strftime("%A %m/%d/%Y") unless event.date.nil? %></p>
 <p class="event_time"><span class="line_heading">Time: </span><%=h event_date(event) %></p>
-<p class="event_volunteers"><span class="line_heading">Volunteers: </span><%=h event_volunteers(event) %></p>
+<p class="event_volunteers"><span class="line_heading">Volunteers: </span><% if event.closed %>Closed to Additional Volunteers<% else %><%=h event_volunteers(event) %><% end %></p>
 
 <% if event.subject_to_cancellation %>
   <p class="event_cancellation"><span>This event is subject to cancellation</span></p>
 <% end %>
+
 
 </div>
 <% end %>
