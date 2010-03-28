@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100328023253) do
+ActiveRecord::Schema.define(:version => 20100328122354) do
 
   create_table "event_volunteers", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(:version => 20100328023253) do
     t.string   "current_login_ip"
     t.string   "last_login_ip"
     t.integer  "group_id"
-    t.integer  "count"
+    t.string   "group"
   end
 
 end
