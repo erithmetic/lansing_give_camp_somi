@@ -4,8 +4,8 @@
   <h3>Contact Information</h3>
 
   <p>
-    <%= user_form.label :email, "E-mail Address", :class=>"standard", :onblur => "javascript:ValidateBox(this)" %><br />
-    <%= user_form.text_field :email, :class=>"standard" %>
+    <%= user_form.label :email, "E-mail Address", :class=>"standard" %><br />
+    <%= user_form.text_field :email, :class=>"standard" , :onblur => "javascript:ValidateBox(this)"%>
   </p>
   <p>
   <%= user_form.label :password, 'Password (optional)', :class =>"standard" %><br />
