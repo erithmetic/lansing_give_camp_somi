@@ -5,6 +5,6 @@ class EventVolunteerMailer < ActionMailer::Base
     recipients user.email
     from       'meredithda8@aol.com'
     subject    "You're signed up for #{event.title}"
-    body       :user => user, :event => event
+    body       :user => user, :event => event, :event_volunteer => event_volunteer
   end
 end
