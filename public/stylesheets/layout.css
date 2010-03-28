@@ -177,7 +177,7 @@ div#content p.highlight {
 
 
 div#content div.event_listing {
-	padding: 15px 0;
+	padding: 12px 0;
 	border-bottom: 1px solid #c1c1a3;
 }
 
@@ -196,7 +196,7 @@ div#content div.event_listing {
 		}
 
 	div#content div.event_listing p {
-		padding: 4px 0 4px 18px;
+		padding: 2px 0 2px 18px;
 		
 		background: transparent url(../images/icons/arrow_right_alt1_12x12.png) center left no-repeat;	
 	}
@@ -277,6 +277,10 @@ div#content textarea.standard {
 		color: #000;
 	}
 
+div#content input.small_number {
+  width: 3em;
+}
+
 
 div#notice {
 	background: #ffc;
@@ -297,6 +301,7 @@ div#notice {
 div#footer p {
 	padding: 0.8em 23px;
 	font-size: 0.8em;
+	line-height: 1.3em;
 	font-weight: bold;
 	color: #565454;
 }

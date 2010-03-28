@@ -7,6 +7,8 @@ class EventVolunteer < ActiveRecord::Base
 
   accepts_nested_attributes_for :user
 
+  default_value_for :number_in_group, 1
+
 private
   def prevent_signup_for_past_event
     if event.past?
