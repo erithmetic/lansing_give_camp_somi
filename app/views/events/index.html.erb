@@ -6,22 +6,16 @@
 
 <% @events.each do |event| %>
 <div class="event_listing">
-
-	<!-- add class="full" to the h3 below to make the 'full' tag appear -->
-    <%= eventTitle(event) %>
-    <p class="event_date"><span class="line_heading">Date: </span><%=h event.date.strftime("%A %m/%d/%Y") unless event.date.nil? %></p>
-    <p class="event_time"><span class="line_heading">Time: </span><%=h event.timeWithDuration %></p>
-    <p class="event_location"><span class="line_heading">Location: </span><%=h event.location %></p>
-	<p class="event_volunteers"><span class="line_heading">Volunteers: </span><%=h event.volunteersFormatted %></p>
+  <%= event_title(event) %>
+  <p class="event_date"><span class="line_heading">Date: </span><%=h event.date.strftime("%A %m/%d/%Y") unless event.date.nil? %></p>
+  <p class="event_time"><span class="line_heading">Time: </span><%=h event_date(@event) %></p>
+  <p class="event_location"><span class="line_heading">Location: </span><%=h event.location %></p>
+	<p class="event_volunteers"><span class="line_heading">Volunteers: </span><%=h event_volunteers(event) %></p>
 </div>
 <% end %>
 </div>
 
-
 <div id="right">
-		
-		
-	
 		<h2 class="no_margin">Why volunteer?</h2>
 		<p>Aliquam quam libero, tristique eget posuere eu, elementum sed sapien. Nulla enim diam, tempor vel condimentum in, dapibus at magna. Nullam eu tortor est, si.</p>
 	

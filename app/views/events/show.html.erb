@@ -7,14 +7,11 @@
 
 <div class="event_listing clear_this less_padding">
 	<div class="event_left">
-	
 		<h2>Details</h2>
-	
 			<p class="event_date"><span class="line_heading">Date: </span><%=h @event.date.strftime("%m/%d/%Y") %></p>
-			<p class="event_time"><span class="line_heading">Time: </span><%=h @event.timeWithDuration %></p>
+			<p class="event_time"><span class="line_heading">Time: </span><%=h event_date(@event) %></p>
 			<p class="event_location"><span class="line_heading">Location: </span><%=h @event.location %></p>
-			<p class="event_volunteers"><span class="line_heading">Volunteers Signed Up: </span><%=h @event.volunteersFormatted %></p>
-	
+			<p class="event_volunteers"><span class="line_heading">Volunteers Signed Up: </span><%=h event_volunteers(@event) %></p>
 	</div>
 	<div class="event_right">
 		<h2>Description</h2>
