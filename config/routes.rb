@@ -10,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
 
   map.resources :events, :has_many => :event_volunteers, :member => [ :volunteers ]
-  map.resources :event_volunteers
+  map.resources :event_volunteers, :collection => { :check_in => :put }
 
   map.resources :sessions
   map.resources :password_resets
