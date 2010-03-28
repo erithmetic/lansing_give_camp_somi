@@ -63,9 +63,7 @@
             <%= event_volunteer_form.text_field :number_in_group, :class => 'small_number' %>
           </p>
         <% end %> 
-        <% if @event.users.count >= @event.maximum_volunteers %>
-          <p>*This event is already has as many volunteers as we think we'll need. If you continue to sign up, we will put you down as an alternate. Alternates do not need to come to the event UNLESS we call you beforehand.</p>
-        <% end %>
+
         <h3>Comments or Special Requests
         <p>
             <%= event_volunteer_form.text_area :comments, :rows => 5, :class => 'small_number' %>
