@@ -1,0 +1,106 @@
+<style type="text/css">
+<!--
+
+
+div#content table.printable {
+	width: 100%;
+}
+
+div#content table.printable tr {
+
+}
+
+div#content table.printable td {
+	padding: 6px 4px;
+	border-bottom: 1px solid #aaa;
+	border: 1px solid #aaa;
+	text-align: center;
+}
+
+div#content table.printable th {
+	font-weight: bold;
+	font-size: 14px;
+	padding: 5px 3px;
+	color: #444;
+	text-transform: uppercase;
+}
+
+-->
+</style>
+
+<style type="text/css" media="print">
+<!--
+
+body {
+	font-family: Verdana;
+}
+
+div#content h1 {
+	
+	color: #000;
+	padding: 10px 0;
+	margin-bottom: 20px;
+	border-top: 2px dashed #333;
+	border-bottom: 2px dashed #333;
+	text-align: center;
+	font-family: Georgia;
+	font-weight: normal;
+	font-size: 1.6em;
+	letter-spacing: 1px;
+}
+
+	div#content h1 span.datetime {
+		display: block;
+		text-align: center;
+		font-size: 70%;
+	}
+
+div#content h2 {
+	text-align: center;
+	color: #666;
+	font-weight: normal;
+	text-transform: uppercase;
+	margin: 0;
+	padding: 0 0 10px 0;
+	font-size: 16px;
+	letter-spacing: 2px;
+}
+
+div#content table.printable td {
+	font-size: 12px;
+}
+
+-->
+</style>
+
+<h1><%= parent_object.title %> <span class="datetime"><%=h parent_object.date.strftime("%m/%d/%Y") %></span></h1>
+
+<h2>List of Volunteers</h2>
+
+<% if collection.empty? %>
+
+<p>Sorry! No one has signed up yet.</p>
+
+<% else %>
+
+<table class="printable">
+<thead>
+	<tr>
+		<th>Name</th>
+		<th>E-mail</th>
+		<th>Phone</th>
+		<th>Address</th>
+		<th>City</th>
+	</tr>
+</thead>
+<% collection.map(&:user).each do | user | %>
+<tr>
+	<td><%=user.name%></td>
+	<td><%=user.email%></td>
+	<td><%=user.phone%></td>
+	<td><%=user.address1%> <%=user.address2%></td>
+	<td><%=user.city%></td>
+</tr>
+<% end %>
+</table>
+<% end %>

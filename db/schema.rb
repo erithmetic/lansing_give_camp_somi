@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100328014903) do
+ActiveRecord::Schema.define(:version => 20100328023253) do
 
   create_table "event_volunteers", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -53,24 +53,6 @@ ActiveRecord::Schema.define(:version => 20100328014903) do
     t.datetime "updated_at"
   end
 
-  create_table "time_blocks", :force => true do |t|
-    t.string   "description"
-    t.float    "hours"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "event_id"
-  end
-
-  create_table "user_time_blocks", :force => true do |t|
-    t.integer  "time_block_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "user_time_blocks", ["time_block_id"], :name => "index_user_time_blocks_on_time_block_id"
-  add_index "user_time_blocks", ["user_id"], :name => "index_user_time_blocks_on_user_id"
-
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "name"
@@ -83,8 +65,6 @@ ActiveRecord::Schema.define(:version => 20100328014903) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin"
-    t.integer  "group_id"
-    t.integer  "count"
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
@@ -97,6 +77,8 @@ ActiveRecord::Schema.define(:version => 20100328014903) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
+    t.integer  "group_id"
+    t.integer  "count"
   end
 
 end

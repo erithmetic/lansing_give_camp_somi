@@ -1,7 +1,6 @@
 class Event < ActiveRecord::Base
 	has_many :users, :through => :event_volunteers, :class_name => 'User'
 	has_many :event_volunteers
-	has_many :time_blocks
 
   named_scope :past, :conditions => ['date <= ?', Time.now]
   named_scope :upcoming, :conditions => ['date > ?', Time.now]
@@ -31,4 +30,20 @@ class Event < ActiveRecord::Base
     return false if date.nil?
     date <= Time.now
   end
+  
+  def volunteersFormatted
+  	numNeeded = maximum_volunteers - users.count
+  	
+  	if numNeeded > 0
+  		return users.count.to_s + " (%i more needed)" % numNeeded
+  	else
+  		return users.count
+  	end
+  end
+  
+  def full?
+  	return users.count == maximum_volunteers
+  end
+  
+  
 end

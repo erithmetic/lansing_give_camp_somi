@@ -1,6 +1,6 @@
 class AddMeredith < ActiveRecord::Migration
   def self.up
-    User.create!(:email => 'meredithda8@aol.com', :password => 'somi', :admin => true)
+    User.create!(:email => 'meredithda8@aol.com', :password => 'somi', :admin => true, :spamValidation=>"1234")
   end
 
   def self.down
