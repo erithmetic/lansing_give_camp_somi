@@ -177,7 +177,7 @@ div#content p.highlight {
 
 
 div#content div.event_listing {
-	padding: 15px 0;
+	padding: 12px 0;
 	border-bottom: 1px solid #c1c1a3;
 }
 
@@ -196,7 +196,7 @@ div#content div.event_listing {
 		}
 
 	div#content div.event_listing p {
-		padding: 4px 0 4px 18px;
+		padding: 2px 0 2px 18px;
 		
 		background: transparent url(../images/icons/arrow_right_alt1_12x12.png) center left no-repeat;	
 	}
