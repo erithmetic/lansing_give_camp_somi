@@ -23,7 +23,14 @@
     <% if current_user and current_user.signed_up_for?(@event) %>
       <p class="cancel_link">You are currently signed up as a volunteer for this event. <%= link_to 'Cancel your sign up?', polymorphic_url(@event_volunteer), :method => :delete, :confirm => "Are you sure you want to cancel your registration?" %></p>
     <% else %>
-      <h2>Sign up for this event as a volunteer</h2>
+    
+    <% if @event.users.count < @event.maximum_volunteers %>
+    <h2>Sign up for this event as a volunteer</h2>
+    <% else %>
+    <h2>Sign up for this event as an alternate*</h2>
+    <p>*This event is already has as many volunteers as we think we'll need. If you continue to sign up, we will put you down as an alternate. Alternates do not need to come to the event UNLESS we call you beforehand.</p>
+    <% end %>
+    
       <% if current_user %>
       	<p class="highlight">You are currently logged into the volunteer coordination system and only need to click "Sign Up" to complete the sign up process. (You will still receive a confirmation e-mail)</p>
       <% end %>
@@ -43,6 +50,11 @@
           <%= event_volunteer_form.label :number_in_group, 'Number of Volunteers in your Group', :class=>"standard" %><br />
           <%= event_volunteer_form.text_field :number_in_group, :class => 'small_number' %>
         </p>
+        
+        <% if @event.users.count >= @event.maximum_volunteers %>
+    	<p>*This event is already has as many volunteers as we think we'll need. If you continue to sign up, we will put you down as an alternate. Alternates do not need to come to the event UNLESS we call you beforehand.</p>
+    	<% end %>
+        
         <p>
           <%= event_volunteer_form.submit 'Sign Up' %> or <%= link_to 'go back to see all opportunities', events_path %>	
         </p>
