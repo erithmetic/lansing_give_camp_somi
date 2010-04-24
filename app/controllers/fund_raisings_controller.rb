@@ -1,4 +1,7 @@
 class FundRaisingsController < ApplicationController
+  before_filter :require_user
+  before_filter :require_admin
+
   # GET /fund_raisings
   # GET /fund_raisings.xml
   def index

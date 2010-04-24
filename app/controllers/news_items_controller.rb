@@ -1,4 +1,7 @@
 class NewsItemsController < ApplicationController
+  before_filter :require_user
+  before_filter :require_admin
+
   # GET /news_items
   # GET /news_items.xml
   def index
