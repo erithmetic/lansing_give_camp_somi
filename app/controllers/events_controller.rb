@@ -2,7 +2,7 @@ class EventsController < ResourceController::Base
   actions :all
 
   before_filter :require_user, :except => [:show, :index]
-  before_filter :require_manager, :except => [:show, :index]
+  before_filter :require_admin, :except => [:show, :index]
 
   index.before do
     @newsitems = NewsItem.find(:all);

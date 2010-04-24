@@ -25,7 +25,7 @@ private
     end
   end
 
-  def require_manager
+  def require_admin
     forbid unless current_user.admin?
   end
 
