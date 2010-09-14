@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100328165029) do
+ActiveRecord::Schema.define(:version => 20100914104920) do
 
   create_table "event_volunteers", :force => true do |t|
     t.integer  "user_id",         :null => false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20100328165029) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description",             :limit => 255
     t.datetime "date"
     t.string   "location"
     t.float    "number_of_hours"
